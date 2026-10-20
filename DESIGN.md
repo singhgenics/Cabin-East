@@ -2,7 +2,7 @@
 name: Cabin East
 description: The pre-launch site as the shop's red plywood hoarding, with the menu wheat-pasted up as crooked bills.
 colors:
-  tangra-red: "#B5321C"
+  cabin-red: "#B5321C"
   bill-cream: "#F2E8D2"
   paste-paper: "#F6EDD9"
   ink: "#1C1714"
@@ -73,7 +73,7 @@ components:
     padding: "0 1.6em"
     height: "48px"
   button-ink-hover:
-    backgroundColor: "{colors.tangra-red}"
+    backgroundColor: "{colors.cabin-red}"
     textColor: "{colors.bill-cream}"
   button-line:
     backgroundColor: "transparent"
@@ -121,9 +121,9 @@ components:
 
 **Creative North Star: "The Hoarding"**
 
-While the shop is being fitted out, the website is its site hoarding. The page is Tangra-red painted plywood (a repeating wood-grain raster under the brand red), and everything the visitor reads is pasted onto it: cream wheat-paste bills, a jade happy-hour bill and an amber feast bill, each a degree or two off square and lightly overlapping. Between the boards, the page drops onto plain cream paper stock for the food stations (WOK, STEAM), then into one dark ink band for DRAUGHT, where the beers hang as painted tap plaques. A tan-wood plate runs across the top as the rail.
+While the shop is being fitted out, the website is its site hoarding. The page is Cabin-red painted plywood (a repeating wood-grain raster under the brand red), and everything the visitor reads is pasted onto it: cream wheat-paste bills, a jade happy-hour bill and an amber feast bill, each a degree or two off square and lightly overlapping. Between the boards, the page drops onto plain cream paper stock for the food stations (WOK, STEAM), then into one dark ink band for DRAUGHT, where the beers hang as painted tap plaques. A tan-wood plate runs across the top as the rail.
 
-Density is pub-menu generous: giant slab station words, real prices on every line, dashed rules between dishes like a printed bill of fare. The voice is warm and loud rather than posh. The only motion is physical: bills settle onto the board when the page loads and lift a few pixels under the pointer, like a sheet catching air.
+Density is pub-menu generous: giant slab station words, real prices on every line, dashed rules between dishes like a printed bill of fare. The voice is warm and loud rather than posh. The motion is physical and plays once: bills are pasted onto the board as the page loads and as the deals board scrolls in, photos are unrolled with a clip reveal, lists rise in with a short stagger, and the Opening soon stamp lands. Under a real pointer a bill lifts three pixels, like a sheet catching air.
 
 The built page departs from the approved comp in three recorded ways. Real menu photographs (from the Menu repo's plating set) and the real pint-stack logo replace the comp's generated pictures, by owner decision. The jade bill is lettered in cream, not ink, because ink on jade measures 2.99:1. The hero reproduces the comp at roughly 70% overall in the comp diff; the composition, palette and type landed, the pictures and some proportions did not.
 
@@ -132,14 +132,14 @@ The built page departs from the approved comp in three recorded ways. Real menu 
 - Alfa Slab One for every shouted word; IBM Plex Sans for reading; IBM Plex Mono for the numbers.
 - Paper is a material, not a colour: bills and slips carry a paper-grain raster, slips carry a deckled edge mask.
 - One dark band (DRAUGHT) per page; everything else sits on cream or red.
-- Motion is the paste-up and the lift, transform-only, and switched off under reduced motion.
+- Motion is the paste-up, the once-only scroll-ins and the lift: transform, opacity and clip-path only, played once, and reduced (movement removed, colour and opacity kept) under reduced motion.
 
 ## Colors
 
-Five pinned brand colours from the Tangra Red kit, plus a small set of supporting tones that exist only to sit on those five.
+Five pinned brand colours from the Cabin Red kit, plus a small set of supporting tones that exist only to sit on those five.
 
 ### Primary
-- **Tangra Red** (tangra-red): the hoarding itself, every station word that is not inked, section heads in the menu, the hero headline and wordmark on the main poster, link-arrow text, nav hover underline, heat marks and text selection. Reads 5.02:1 on bill cream.
+- **Cabin Red** (cabin-red): the hoarding itself, every station word that is not inked, section heads in the menu, the hero headline and wordmark on the main poster, link-arrow text, nav hover underline, heat marks and text selection. Reads 5.02:1 on bill cream.
 
 ### Secondary
 - **Jade Bill** (jade): the happy-hour bill (hero and deals row) and the small "Goa" origin tag in the menu. Always lettered in cream (4.88:1); its small print uses a pale jade-cream tint.
@@ -217,12 +217,12 @@ The direction contract asked for square plaque corners on buttons; the build shi
 ### Buttons
 Painted signboard plaques: heavy, uppercase, 48px tall minimum.
 - **Shape:** 6px corners with a 2px ink border.
-- **Ink:** ink face, cream label, soft ink drop beneath; hover turns the face and border Tangra red.
+- **Ink:** ink face, cream label, soft ink drop beneath; hover turns the face and border Cabin red.
 - **Line:** transparent face, ink border and label; hover fills ink with a cream label.
 - **Press:** sinks 1px and scales to 0.985. Focus is the global 3px amber ring offset 3px.
 
 ### Navigation (top rail)
-A 56px sticky tan-wood plate (raster, tan fallback) with the line logo left and four uppercase Plex Sans links right. Hover draws a 2px red underline from the left over 0.35s and reds the label. On phones the rail stacks logo above the links, which spread across the full width.
+A 56px sticky tan-wood plate (raster, tan fallback) with the line logo left and four uppercase Plex Sans links right. Hover (real pointers only) draws a 2px deep-red underline in from the left over 200ms (a scaleX that leaves to the right) and darkens the label. On phones the rail stacks logo above the links, which spread across the full width.
 
 ### Bills
 Pasted posters on the hoarding: cream (paper-grain raster), jade, or amber, sharp corners, the pasted shadow, rotated. On desktop the hero bills are absolutely placed; elsewhere bills sit in a grid with staggered top offsets (0, 40, 12, 56px). Bill titles are slab headline; prices are mono.
@@ -246,7 +246,7 @@ A 148px ink disc with a double amber ring, cream slab lettering, rotated 12deg a
 - **Do** letter jade bills in cream; ink on jade is 2.99:1.
 - **Do** set every price, time and measure in IBM Plex Mono Medium, never wrapped.
 - **Do** use real plated photography from the Menu repo for dishes and drinks; label any picture of an unbuilt room as an artist's impression.
-- **Do** keep motion to the paste-up (transform, 0.9s, cubic-bezier(.16,1,.3,1), staggered) and the 4px hover lift, and drop both under prefers-reduced-motion.
+- **Do** keep motion to the paste-up (transform and opacity, 560ms, cubic-bezier(.23,1,.32,1), staggered 80-100ms), the once-only scroll-ins, the 3px hover lift (pointer devices only) and 160ms scale(.97) press feedback; reduce them under prefers-reduced-motion.
 - **Do** stack the hero on phones as poster, then the photo pair, then the happy-hour bill.
 
 ### Don't:
@@ -254,4 +254,4 @@ A 148px ink disc with a double amber ring, cream slab lettering, rotated 12deg a
 - **Don't** set Alfa Slab One for running text, or Plex Mono for anything that is not a price, time or measure.
 - **Don't** square-up pasted bills or give them rounded corners; paper is sharp and crooked.
 - **Don't** use neutral grey shadows on the cream or red grounds.
-- **Don't** animate layout properties; the paste and lift are transform and shadow only.
+- **Don't** animate layout or paint properties; motion is transform, opacity and clip-path, and the hover shadow is a pseudo-element faded by opacity.

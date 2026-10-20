@@ -40,7 +40,7 @@ Indo-Chinese from the wok, dim sum and bao from the steamer, and craft beer from
 
 - Name **Cabin East**, tagline **WOK | STEAM | DRAUGHT**, always set under the logo.
 - Master logo: the pint-stack (glass holding foam, steamer with dumpling, flame and wok) with Alfa Slab One "CABIN EAST". Assets in Dream/CabinEast/brand-kit/logo.
-- Tangra Red palette: red #B5321C, cream #F2E8D2, ink #1C1714, amber #E49B1D, jade #2F6F57. Alfa Slab One display, IBM Plex Sans text, IBM Plex Mono labels.
+- Cabin Red palette: red #B5321C, cream #F2E8D2, ink #1C1714, amber #E49B1D, jade #2F6F57. Alfa Slab One display, IBM Plex Sans text, IBM Plex Mono labels.
 - Dish names are playful puns (Cabin Fever, Wonton Kenobi, Gose Bumps); keep them exactly.
 - Inspiration given by the owner: craft-pub WordPress themes with cream paper, heavy slab headings, dark bands, photo mosaics (Website/reference). Premium but not intimidating.
 

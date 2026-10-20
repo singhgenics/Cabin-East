@@ -4,9 +4,9 @@
   "title": "Design System: Cabin East",
   "extensions": {
     "colorMeta": {
-      "tangra-red": {
+      "cabin-red": {
         "role": "primary",
-        "displayName": "Tangra Red",
+        "displayName": "Cabin Red",
         "canonical": "#B5321C",
         "oklch": "oklch(51.6% 0.171 32.1)",
         "tonalRamp": [
@@ -305,7 +305,7 @@
       },
       {
         "name": "paste",
-        "value": "@keyframes paste { from { transform: translateY(-14px) scale(1.035); box-shadow: 0 30px 50px -10px rgba(40,8,2,.55); filter: brightness(1.04); } } 0.9s ease-settle both",
+        "value": "@keyframes paste { from { opacity: 0; transform: translateY(-12px) scale(1.03); } } 560ms cubic-bezier(.23,1,.32,1) backwards",
         "purpose": "Bills settle onto the hoarding on load (hero: .05s, .18s, .28s, .4s stagger); the deals row pastes up when scrolled into view (0, .1, .2, .3s)."
       },
       {
@@ -351,7 +351,7 @@
       "name": "Ink Button",
       "kind": "button",
       "refersTo": "button-ink",
-      "description": "Primary action: painted ink plaque that turns Tangra red on hover.",
+      "description": "Primary action: painted ink plaque that turns Cabin red on hover.",
       "html": "<a class=\"ds-btn ds-btn-ink\" href=\"#\">See the menu</a>",
       "css": ":host{--red:#B5321C;--cream:#F2E8D2;--paper:#F6EDD9;--ink:#1C1714;--ink-soft:#5A4C42;--amber:#E49B1D;--jade:#2F6F57;--slab:'Alfa Slab One','Rockwell Extra Bold',serif;--sans:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--ease:cubic-bezier(.16,1,.3,1);--shadow:0 1px 1px rgba(60,14,6,.18),0 6px 14px -4px rgba(60,14,6,.35),0 18px 36px -18px rgba(40,8,2,.45);}.ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 1.6em;font:600 1.0625rem/1 var(--sans);letter-spacing:.07em;text-transform:uppercase;text-decoration:none;border:2px solid var(--ink);border-radius:6px;cursor:pointer;transition:transform .25s var(--ease),background-color .2s,color .2s;} .ds-btn:active{transform:translateY(1px) scale(.985);} .ds-btn:focus-visible{outline:3px solid var(--amber);outline-offset:3px;} .ds-btn-ink{background:var(--ink);color:var(--cream);box-shadow:0 8px 18px -10px rgba(28,23,20,.8);} .ds-btn-ink:hover{background:var(--red);border-color:var(--red);}"
     },
@@ -422,7 +422,7 @@
   ],
   "narrative": {
     "northStar": "The Hoarding",
-    "overview": "While the shop is being fitted out, the website is its site hoarding. The page is Tangra-red painted plywood (a repeating wood-grain raster under the brand red), and everything the visitor reads is pasted onto it: cream wheat-paste bills, a jade happy-hour bill and an amber feast bill, each a degree or two off square and lightly overlapping. Between the boards, the page drops onto plain cream paper stock for the food stations (WOK, STEAM), then into one dark ink band for DRAUGHT, where the beers hang as painted tap plaques. A tan-wood plate runs across the top as the rail.\n\nDensity is pub-menu generous: giant slab station words, real prices on every line, dashed rules between dishes like a printed bill of fare. The voice is warm and loud rather than posh. The only motion is physical: bills settle onto the board when the page loads and lift a few pixels under the pointer, like a sheet catching air.\n\nThe built page departs from the approved comp in three recorded ways. Real menu photographs (from the Menu repo's plating set) and the real pint-stack logo replace the comp's generated pictures, by owner decision. The jade bill is lettered in cream, not ink, because ink on jade measures 2.99:1. The hero reproduces the comp at roughly 70% overall in the comp diff; the composition, palette and type landed, the pictures and some proportions did not.",
+    "overview": "While the shop is being fitted out, the website is its site hoarding. The page is Cabin-red painted plywood (a repeating wood-grain raster under the brand red), and everything the visitor reads is pasted onto it: cream wheat-paste bills, a jade happy-hour bill and an amber feast bill, each a degree or two off square and lightly overlapping. Between the boards, the page drops onto plain cream paper stock for the food stations (WOK, STEAM), then into one dark ink band for DRAUGHT, where the beers hang as painted tap plaques. A tan-wood plate runs across the top as the rail.\n\nDensity is pub-menu generous: giant slab station words, real prices on every line, dashed rules between dishes like a printed bill of fare. The voice is warm and loud rather than posh. The motion is physical and plays once: bills are pasted onto the board as the page loads and as the deals board scrolls in, photos are unrolled with a clip reveal, lists rise in with a short stagger, and the Opening soon stamp lands. Under a real pointer a bill lifts three pixels, like a sheet catching air.\n\nThe built page departs from the approved comp in three recorded ways. Real menu photographs (from the Menu repo's plating set) and the real pint-stack logo replace the comp's generated pictures, by owner decision. The jade bill is lettered in cream, not ink, because ink on jade measures 2.99:1. The hero reproduces the comp at roughly 70% overall in the comp diff; the composition, palette and type landed, the pictures and some proportions did not.",
     "keyCharacteristics": [
       "Red plywood ground with pasted paper bills, each rotated between -3deg and +3deg.",
       "Alfa Slab One for every shouted word; IBM Plex Sans for reading; IBM Plex Mono for the numbers.",
