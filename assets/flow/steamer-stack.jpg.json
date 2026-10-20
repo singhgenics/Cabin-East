@@ -1,0 +1,8 @@
+{
+ "prompt": "Editorial food photograph, 4:5 portrait: a tall stack of four bamboo dim sum steamers on a cream stoneware plate on a warm oak table, the top lid lifted and tilted against the stack, thick soft steam rising, inside the open basket pleated translucent crystal dumplings and open-topped siu mai with a dot of red chilli oil, a small dish of chilli oil and porcelain spoon beside it, late afternoon window light from the left, cream and red tones. Real, warm, appetising.\n",
+ "tool": "Google Flow nano2 (gflow-cli)",
+ "refs": [
+  "/Users/abhisheksingh/Documents/Code/Dream/Menu-repo/img/plating/siumai.jpg",
+  "/Users/abhisheksingh/Documents/Code/Dream/Menu-repo/img/plating/crystal.jpg"
+ ]
+}

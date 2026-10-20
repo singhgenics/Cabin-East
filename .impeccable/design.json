@@ -1,0 +1,481 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-20T14:43:50+00:00",
+  "title": "Design System: Cabin East",
+  "extensions": {
+    "colorMeta": {
+      "tangra-red": {
+        "role": "primary",
+        "displayName": "Tangra Red",
+        "canonical": "#B5321C",
+        "oklch": "oklch(51.6% 0.171 32.1)",
+        "tonalRamp": [
+          "#270000",
+          "#530000",
+          "#820000",
+          "#AD2A13",
+          "#D5513A",
+          "#FE765D",
+          "#FFA088",
+          "#FFD0BA"
+        ]
+      },
+      "bill-cream": {
+        "role": "neutral",
+        "displayName": "Bill Cream",
+        "canonical": "#F2E8D2",
+        "oklch": "oklch(93.3% 0.031 86.5)",
+        "tonalRamp": [
+          "#0E0B04",
+          "#2A2418",
+          "#494130",
+          "#69604D",
+          "#8B816D",
+          "#AEA48F",
+          "#D1C8B5",
+          "#F5EEDE"
+        ]
+      },
+      "paste-paper": {
+        "role": "neutral",
+        "displayName": "Paste Paper",
+        "canonical": "#F6EDD9",
+        "oklch": "oklch(94.8% 0.028 86.6)",
+        "tonalRamp": [
+          "#0E0B05",
+          "#292419",
+          "#484132",
+          "#68604F",
+          "#8A8270",
+          "#ADA491",
+          "#D0C8B7",
+          "#F4EEE0"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Signwriter Ink",
+        "canonical": "#1C1714",
+        "oklch": "oklch(20.9% 0.010 52.9)",
+        "tonalRamp": [
+          "#0D0B09",
+          "#282422",
+          "#46413D",
+          "#66605C",
+          "#87817D",
+          "#AAA39F",
+          "#CEC8C4",
+          "#F3EDEA"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Faded Ink",
+        "canonical": "#5A4C42",
+        "oklch": "oklch(42.8% 0.025 57.5)",
+        "tonalRamp": [
+          "#100A06",
+          "#2C231C",
+          "#4C3F36",
+          "#6D5E54",
+          "#8E7F74",
+          "#B2A296",
+          "#D5C6BB",
+          "#F8ECE3"
+        ]
+      },
+      "amber": {
+        "role": "secondary",
+        "displayName": "Amber Bill",
+        "canonical": "#E49B1D",
+        "oklch": "oklch(74.4% 0.151 73.7)",
+        "tonalRamp": [
+          "#1E0200",
+          "#431600",
+          "#6C2F00",
+          "#924E00",
+          "#B77100",
+          "#DD940B",
+          "#FEBB59",
+          "#FFE49B"
+        ]
+      },
+      "jade": {
+        "role": "secondary",
+        "displayName": "Jade Bill",
+        "canonical": "#2F6F57",
+        "oklch": "oklch(49.3% 0.077 166.0)",
+        "tonalRamp": [
+          "#001007",
+          "#002D1F",
+          "#0F4E39",
+          "#2F6F57",
+          "#529178",
+          "#75B59A",
+          "#9ED8BF",
+          "#CDFBE6"
+        ]
+      },
+      "rail-tan": {
+        "role": "neutral",
+        "displayName": "Rail Tan",
+        "canonical": "#D9B98F",
+        "oklch": "oklch(80.3% 0.067 74.2)",
+        "tonalRamp": [
+          "#140800",
+          "#332105",
+          "#563D18",
+          "#785B34",
+          "#9B7D54",
+          "#BE9F76",
+          "#E1C49E",
+          "#FFEACC"
+        ]
+      },
+      "plaque-wood": {
+        "role": "neutral",
+        "displayName": "Plaque Wood",
+        "canonical": "#2A221D",
+        "oklch": "oklch(25.9% 0.015 53.9)",
+        "tonalRamp": [
+          "#0E0A08",
+          "#2A2420",
+          "#48403B",
+          "#695F59",
+          "#8A807A",
+          "#ADA39C",
+          "#D1C7C1",
+          "#F5EDE8"
+        ]
+      },
+      "cream-on-ink": {
+        "role": "neutral",
+        "displayName": "Cream on Ink",
+        "canonical": "#E6DAC0",
+        "oklch": "oklch(89.1% 0.037 86.2)",
+        "tonalRamp": [
+          "#0F0B03",
+          "#2B2415",
+          "#4A412D",
+          "#6B6049",
+          "#8C8169",
+          "#AFA48B",
+          "#D3C8B1",
+          "#F6EEDB"
+        ]
+      },
+      "muted-on-ink": {
+        "role": "neutral",
+        "displayName": "Muted on Ink",
+        "canonical": "#CFC3AB",
+        "oklch": "oklch(82.1% 0.035 84.6)",
+        "tonalRamp": [
+          "#0F0A03",
+          "#2B2416",
+          "#4A412E",
+          "#6B604A",
+          "#8C816B",
+          "#AFA48C",
+          "#D3C8B2",
+          "#F6EEDC"
+        ]
+      },
+      "veg-green": {
+        "role": "neutral",
+        "displayName": "Veg Green",
+        "canonical": "#2E7D32",
+        "oklch": "oklch(52.3% 0.135 144.2)",
+        "tonalRamp": [
+          "#001200",
+          "#003000",
+          "#005209",
+          "#237429",
+          "#49974B",
+          "#6CBB6D",
+          "#97DE96",
+          "#C7FFC6"
+        ]
+      },
+      "nonveg-brown": {
+        "role": "neutral",
+        "displayName": "Non-veg Brown",
+        "canonical": "#8B3A1A",
+        "oklch": "oklch(45.4% 0.119 40.5)",
+        "tonalRamp": [
+          "#1F0000",
+          "#461000",
+          "#702707",
+          "#984526",
+          "#BD6748",
+          "#E48A6A",
+          "#FFB193",
+          "#FFDCC3"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Station Word",
+        "purpose": "WOK, STEAM, DRAUGHT, THE MENU; uppercase, red with optional inked letters."
+      },
+      "headline": {
+        "displayName": "Bill Head",
+        "purpose": "Menu section heads, bill titles, Find us and garden statements."
+      },
+      "title": {
+        "displayName": "Dish Name",
+        "purpose": "Dish and drink names in lists, slips, baskets, shelf and taps."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "One paragraph beside each station word, max 46ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running copy, tabular figures."
+      },
+      "label": {
+        "displayName": "Plaque Label",
+        "purpose": "Buttons and menu tabs, uppercase."
+      },
+      "price": {
+        "displayName": "Ledger Mono",
+        "purpose": "Prices, times and measures only."
+      }
+    },
+    "materials": [
+      {
+        "name": "hoarding-wood",
+        "value": "assets/img/hoarding-wood.webp over #B5321C, repeat-x, auto 100%",
+        "purpose": "Red plywood ground of every hoarding band."
+      },
+      {
+        "name": "paper-grain",
+        "value": "assets/img/paper.webp, repeat, 512px",
+        "purpose": "Page body and every cream bill and slip."
+      },
+      {
+        "name": "deckle",
+        "value": "assets/img/deckle.webp as mask, 100% 100%",
+        "purpose": "Torn edge on deckled slips."
+      },
+      {
+        "name": "rail-wood",
+        "value": "assets/img/nav-rail.webp, cover, over #D9B98F",
+        "purpose": "Tan-wood top rail plate."
+      }
+    ],
+    "shadows": [
+      {
+        "name": "pasted",
+        "value": "0 1px 1px rgba(60,14,6,.18), 0 6px 14px -4px rgba(60,14,6,.35), 0 18px 36px -18px rgba(40,8,2,.45)",
+        "purpose": "Every bill, photo print, stamp and station photo."
+      },
+      {
+        "name": "lifted",
+        "value": "0 1px 1px rgba(60,14,6,.15), 0 14px 22px -8px rgba(60,14,6,.4), 0 30px 50px -24px rgba(40,8,2,.5)",
+        "purpose": "Bill under the pointer."
+      },
+      {
+        "name": "slip",
+        "value": "drop-shadow(0 2px 1px rgba(60,14,6,.2)) drop-shadow(0 10px 12px rgba(60,14,6,.3))",
+        "purpose": "Deckled slips (filter, works through the mask)."
+      },
+      {
+        "name": "plaque-frame",
+        "value": "inset 0 0 0 2px rgba(242,232,210,.16), inset 0 0 0 6px #2A221D, inset 0 0 0 7px rgba(228,155,29,.28), 0 14px 26px -14px #000",
+        "purpose": "Tap plaques on the ink band."
+      },
+      {
+        "name": "rail",
+        "value": "0 1px 0 rgba(60,30,10,.35), 0 4px 10px -6px rgba(40,10,2,.5)",
+        "purpose": "Sticky top rail."
+      },
+      {
+        "name": "basket",
+        "value": "0 4px 10px -4px rgba(40,8,2,.5)",
+        "purpose": "Round steamer-basket thumbnails."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-settle",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "All transitions and the paste-up."
+      },
+      {
+        "name": "paste",
+        "value": "@keyframes paste { from { transform: translateY(-14px) scale(1.035); box-shadow: 0 30px 50px -10px rgba(40,8,2,.55); filter: brightness(1.04); } } 0.9s ease-settle both",
+        "purpose": "Bills settle onto the hoarding on load (hero: .05s, .18s, .28s, .4s stagger); the deals row pastes up when scrolled into view (0, .1, .2, .3s)."
+      },
+      {
+        "name": "lift",
+        "value": "translate 0 -4px; .4s ease-settle, shadow to lifted",
+        "purpose": "Bill hover."
+      },
+      {
+        "name": "rail-underline",
+        "value": "background-size 0 to 100% 2px, .35s ease-settle",
+        "purpose": "Nav link hover."
+      },
+      {
+        "name": "press",
+        "value": "translateY(1px) scale(.985)",
+        "purpose": "Button active."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce disables all animation and transition; paste and lift only run under no-preference",
+        "purpose": "Accessibility."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "tablet",
+        "value": "1100px"
+      },
+      {
+        "name": "phone",
+        "value": "820px"
+      }
+    ],
+    "knownDeviations": [
+      "Real menu photos (Menu-repo/img/plating) and the real pint-stack logo replace the comp's generated pictures (owner decision).",
+      "Jade bills are lettered in cream, not ink: ink on jade is 2.99:1, cream on jade 4.88:1.",
+      "Hero comp-diff is about 70% overall against .impeccable/mocks/decision/hoarding.jpg.",
+      "Buttons ship with 6px corners where the direction contract asked for square plaque corners."
+    ]
+  },
+  "components": [
+    {
+      "name": "Ink Button",
+      "kind": "button",
+      "refersTo": "button-ink",
+      "description": "Primary action: painted ink plaque that turns Tangra red on hover.",
+      "html": "<a class=\"ds-btn ds-btn-ink\" href=\"#\">See the menu</a>",
+      "css": ":host{--red:#B5321C;--cream:#F2E8D2;--paper:#F6EDD9;--ink:#1C1714;--ink-soft:#5A4C42;--amber:#E49B1D;--jade:#2F6F57;--slab:'Alfa Slab One','Rockwell Extra Bold',serif;--sans:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--ease:cubic-bezier(.16,1,.3,1);--shadow:0 1px 1px rgba(60,14,6,.18),0 6px 14px -4px rgba(60,14,6,.35),0 18px 36px -18px rgba(40,8,2,.45);}.ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 1.6em;font:600 1.0625rem/1 var(--sans);letter-spacing:.07em;text-transform:uppercase;text-decoration:none;border:2px solid var(--ink);border-radius:6px;cursor:pointer;transition:transform .25s var(--ease),background-color .2s,color .2s;} .ds-btn:active{transform:translateY(1px) scale(.985);} .ds-btn:focus-visible{outline:3px solid var(--amber);outline-offset:3px;} .ds-btn-ink{background:var(--ink);color:var(--cream);box-shadow:0 8px 18px -10px rgba(28,23,20,.8);} .ds-btn-ink:hover{background:var(--red);border-color:var(--red);}"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Secondary action beside the ink button; fills ink on hover.",
+      "html": "<a class=\"ds-btn ds-btn-line\" href=\"#\">Find us</a>",
+      "css": ":host{--red:#B5321C;--cream:#F2E8D2;--paper:#F6EDD9;--ink:#1C1714;--ink-soft:#5A4C42;--amber:#E49B1D;--jade:#2F6F57;--slab:'Alfa Slab One','Rockwell Extra Bold',serif;--sans:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--ease:cubic-bezier(.16,1,.3,1);--shadow:0 1px 1px rgba(60,14,6,.18),0 6px 14px -4px rgba(60,14,6,.35),0 18px 36px -18px rgba(40,8,2,.45);}.ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 1.6em;font:600 1.0625rem/1 var(--sans);letter-spacing:.07em;text-transform:uppercase;text-decoration:none;border:2px solid var(--ink);border-radius:6px;cursor:pointer;transition:transform .25s var(--ease),background-color .2s,color .2s;} .ds-btn:active{transform:translateY(1px) scale(.985);} .ds-btn:focus-visible{outline:3px solid var(--amber);outline-offset:3px;} .ds-btn-line{background:transparent;color:var(--ink);} .ds-btn-line:hover{background:var(--ink);color:var(--cream);}"
+    },
+    {
+      "name": "Top Rail",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Sticky tan-wood plate with the line logo and four uppercase links; red underline draws in on hover.",
+      "html": "<nav class=\"ds-rail\"><span class=\"ds-rail-logo\">CABIN EAST</span><span class=\"ds-rail-nav\"><a href=\"#\">Menu</a><a href=\"#\">Drinks</a><a href=\"#\">Garden</a><a href=\"#\">Find us</a></span></nav>",
+      "css": ":host{--red:#B5321C;--cream:#F2E8D2;--paper:#F6EDD9;--ink:#1C1714;--ink-soft:#5A4C42;--amber:#E49B1D;--jade:#2F6F57;--slab:'Alfa Slab One','Rockwell Extra Bold',serif;--sans:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--ease:cubic-bezier(.16,1,.3,1);--shadow:0 1px 1px rgba(60,14,6,.18),0 6px 14px -4px rgba(60,14,6,.35),0 18px 36px -18px rgba(40,8,2,.45);}.ds-rail{display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px;padding:0 24px;background:#D9B98F;box-shadow:0 1px 0 rgba(60,30,10,.35),0 4px 10px -6px rgba(40,10,2,.5);color:var(--ink);} .ds-rail-logo{font:400 1.4rem/1 var(--slab);color:var(--red);} .ds-rail-nav{display:flex;gap:28px;} .ds-rail-nav a{font:700 1.3125rem/1 var(--sans);font-stretch:85%;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;color:inherit;padding:6px 0;background:linear-gradient(var(--red),var(--red)) 0 100%/0 2px no-repeat;transition:background-size .35s var(--ease),color .2s;} .ds-rail-nav a:hover{color:var(--red);background-size:100% 2px;} :focus-visible{outline:3px solid var(--amber);outline-offset:3px;}"
+    },
+    {
+      "name": "Cream Bill",
+      "kind": "card",
+      "refersTo": "bill-cream",
+      "description": "Pasted wheat-paste poster on the red hoarding; lifts 4px on hover.",
+      "html": "<div class=\"ds-board\"><article class=\"ds-bill\"><h3>Steamer for two</h3><p>2 baskets of dim sum (8 pieces) + a plate of 2 bao, chef’s pick</p><p class=\"ds-price\">₹799</p></article></div>",
+      "css": ":host{--red:#B5321C;--cream:#F2E8D2;--paper:#F6EDD9;--ink:#1C1714;--ink-soft:#5A4C42;--amber:#E49B1D;--jade:#2F6F57;--slab:'Alfa Slab One','Rockwell Extra Bold',serif;--sans:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--ease:cubic-bezier(.16,1,.3,1);--shadow:0 1px 1px rgba(60,14,6,.18),0 6px 14px -4px rgba(60,14,6,.35),0 18px 36px -18px rgba(40,8,2,.45);}.ds-board{background:var(--red);padding:40px;} .ds-bill{width:260px;padding:28px;display:flex;flex-direction:column;gap:12px;background:var(--paper);color:var(--ink);box-shadow:var(--shadow);rotate:-1.5deg;transition:translate .4s var(--ease),box-shadow .4s var(--ease);font:400 1rem/1.5 var(--sans);} .ds-bill:hover{translate:0 -4px;box-shadow:0 1px 1px rgba(60,14,6,.15),0 14px 22px -8px rgba(60,14,6,.4),0 30px 50px -24px rgba(40,8,2,.5);} .ds-bill h3{margin:0;font:400 2rem/1 var(--slab);text-transform:uppercase;} .ds-bill p{margin:0;} .ds-price{font:500 1.35rem/1.3 var(--mono);letter-spacing:.01em;white-space:nowrap;}"
+    },
+    {
+      "name": "Jade Bill",
+      "kind": "card",
+      "refersTo": "bill-jade",
+      "description": "Happy-hour bill: jade face, cream lettering (ink on jade fails at 2.99:1).",
+      "html": "<div class=\"ds-board\"><article class=\"ds-bill ds-bill-jade\"><h3>Happy hour <span>12–6</span></h3><p class=\"ds-price\">Taps ₹179 · Kings ₹99</p></article></div>",
+      "css": ":host{--red:#B5321C;--cream:#F2E8D2;--paper:#F6EDD9;--ink:#1C1714;--ink-soft:#5A4C42;--amber:#E49B1D;--jade:#2F6F57;--slab:'Alfa Slab One','Rockwell Extra Bold',serif;--sans:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--ease:cubic-bezier(.16,1,.3,1);--shadow:0 1px 1px rgba(60,14,6,.18),0 6px 14px -4px rgba(60,14,6,.35),0 18px 36px -18px rgba(40,8,2,.45);}.ds-board{background:var(--red);padding:40px;} .ds-bill{width:260px;padding:28px;display:flex;flex-direction:column;gap:12px;background:var(--paper);color:var(--ink);box-shadow:var(--shadow);rotate:-1.5deg;transition:translate .4s var(--ease),box-shadow .4s var(--ease);font:400 1rem/1.5 var(--sans);} .ds-bill:hover{translate:0 -4px;box-shadow:0 1px 1px rgba(60,14,6,.15),0 14px 22px -8px rgba(60,14,6,.4),0 30px 50px -24px rgba(40,8,2,.5);} .ds-bill h3{margin:0;font:400 2rem/1 var(--slab);text-transform:uppercase;} .ds-bill p{margin:0;} .ds-price{font:500 1.35rem/1.3 var(--mono);letter-spacing:.01em;white-space:nowrap;} .ds-bill-jade{background:var(--jade);color:var(--cream);rotate:1deg;} .ds-bill-jade h3 span{display:block;font-size:2.2em;line-height:.95;}"
+    },
+    {
+      "name": "Amber Bill",
+      "kind": "card",
+      "refersTo": "bill-amber",
+      "description": "Feast bill: amber face with ink lettering.",
+      "html": "<div class=\"ds-board\"><article class=\"ds-bill ds-bill-amber\"><h3>Cabin feast for four</h3><p>4 soups of your choice, Cabin Fever chicken, Salt &amp; Pepa chonak, mixed Noodle Around</p><p class=\"ds-price\">₹2,299</p></article></div>",
+      "css": ":host{--red:#B5321C;--cream:#F2E8D2;--paper:#F6EDD9;--ink:#1C1714;--ink-soft:#5A4C42;--amber:#E49B1D;--jade:#2F6F57;--slab:'Alfa Slab One','Rockwell Extra Bold',serif;--sans:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--ease:cubic-bezier(.16,1,.3,1);--shadow:0 1px 1px rgba(60,14,6,.18),0 6px 14px -4px rgba(60,14,6,.35),0 18px 36px -18px rgba(40,8,2,.45);}.ds-board{background:var(--red);padding:40px;} .ds-bill{width:260px;padding:28px;display:flex;flex-direction:column;gap:12px;background:var(--paper);color:var(--ink);box-shadow:var(--shadow);rotate:-1.5deg;transition:translate .4s var(--ease),box-shadow .4s var(--ease);font:400 1rem/1.5 var(--sans);} .ds-bill:hover{translate:0 -4px;box-shadow:0 1px 1px rgba(60,14,6,.15),0 14px 22px -8px rgba(60,14,6,.4),0 30px 50px -24px rgba(40,8,2,.5);} .ds-bill h3{margin:0;font:400 2rem/1 var(--slab);text-transform:uppercase;} .ds-bill p{margin:0;} .ds-price{font:500 1.35rem/1.3 var(--mono);letter-spacing:.01em;white-space:nowrap;} .ds-bill-amber{background:var(--amber);color:var(--ink);rotate:-.6deg;}"
+    },
+    {
+      "name": "Tap Plaque",
+      "kind": "custom",
+      "refersTo": "tap-plaque",
+      "description": "A beer on tap as a painted plaque on the ink band, mono amber price with measures.",
+      "html": "<div class=\"ds-band\"><div class=\"ds-tap\"><div><h3>Comrade Crisp</h3><p class=\"ds-sub\">People’s Lager · on tap</p><p>A light rice lager from a small farm-to-barrel brewery in Sangolda.</p></div><p class=\"ds-tap-price\">₹220 / 300<span>330 / 500 ml</span></p></div></div>",
+      "css": ":host{--red:#B5321C;--cream:#F2E8D2;--paper:#F6EDD9;--ink:#1C1714;--ink-soft:#5A4C42;--amber:#E49B1D;--jade:#2F6F57;--slab:'Alfa Slab One','Rockwell Extra Bold',serif;--sans:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--ease:cubic-bezier(.16,1,.3,1);--shadow:0 1px 1px rgba(60,14,6,.18),0 6px 14px -4px rgba(60,14,6,.35),0 18px 36px -18px rgba(40,8,2,.45);}.ds-band{background:var(--ink);padding:32px;} .ds-tap{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:22px 24px;border-radius:4px;background:#2A221D;box-shadow:inset 0 0 0 2px rgba(242,232,210,.16),inset 0 0 0 6px #2A221D,inset 0 0 0 7px rgba(228,155,29,.28),0 14px 26px -14px #000;rotate:-.6deg;color:#CFC3AB;font:400 1rem/1.5 var(--sans);} .ds-tap h3{margin:0;font:400 2rem/1 var(--slab);color:#F2C24A;} .ds-tap p{margin:0;} .ds-sub{font-weight:600;color:#E6DAC0;} .ds-tap-price{font:500 1.15rem/1.3 var(--mono);color:var(--amber);text-align:right;} .ds-tap-price span{display:block;font-size:.75rem;color:#BDB09A;margin-top:4px;letter-spacing:.04em;}"
+    },
+    {
+      "name": "Menu Tabs",
+      "kind": "chip",
+      "refersTo": "menu-tab-selected",
+      "description": "Food / Drinks switch: ink-bordered strip, selected tab inked.",
+      "html": "<div class=\"ds-tabs\" role=\"tablist\"><button role=\"tab\" aria-selected=\"true\">Food</button><button role=\"tab\" aria-selected=\"false\">Drinks</button></div>",
+      "css": ":host{--red:#B5321C;--cream:#F2E8D2;--paper:#F6EDD9;--ink:#1C1714;--ink-soft:#5A4C42;--amber:#E49B1D;--jade:#2F6F57;--slab:'Alfa Slab One','Rockwell Extra Bold',serif;--sans:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--ease:cubic-bezier(.16,1,.3,1);--shadow:0 1px 1px rgba(60,14,6,.18),0 6px 14px -4px rgba(60,14,6,.35),0 18px 36px -18px rgba(40,8,2,.45);}.ds-tabs{display:inline-flex;border:2px solid var(--ink);border-radius:6px;overflow:hidden;} .ds-tabs button{font:600 1rem/1 var(--sans);letter-spacing:.07em;text-transform:uppercase;padding:14px 28px;min-height:48px;border:0;background:transparent;color:var(--ink);cursor:pointer;transition:background-color .2s,color .2s;} .ds-tabs button[aria-selected=\"true\"]{background:var(--ink);color:var(--cream);} .ds-tabs button:not([aria-selected=\"true\"]):hover{background:rgba(28,23,20,.08);} .ds-tabs button:focus-visible{outline:3px solid var(--amber);outline-offset:-3px;}"
+    },
+    {
+      "name": "Menu Dish Line",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "One dish on the full menu: slab name with diet mark, faded description, mono price, dashed rule.",
+      "html": "<div class=\"ds-dish\"><div><p class=\"ds-name\">Wonton Kenobi <span class=\"ds-diet\"></span></p><p class=\"ds-what\">Chicken wonton soup</p></div><p class=\"ds-dp\">₹220</p></div>",
+      "css": ":host{--red:#B5321C;--cream:#F2E8D2;--paper:#F6EDD9;--ink:#1C1714;--ink-soft:#5A4C42;--amber:#E49B1D;--jade:#2F6F57;--slab:'Alfa Slab One','Rockwell Extra Bold',serif;--sans:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--ease:cubic-bezier(.16,1,.3,1);--shadow:0 1px 1px rgba(60,14,6,.18),0 6px 14px -4px rgba(60,14,6,.35),0 18px 36px -18px rgba(40,8,2,.45);}.ds-dish{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:14px 0;border-bottom:1.5px dashed rgba(28,23,20,.22);background:var(--cream);color:var(--ink);max-width:420px;} .ds-dish p{margin:0;} .ds-name{font:400 1.15rem/1.2 var(--slab);} .ds-what{font:400 .9375rem/1.45 var(--sans);color:var(--ink-soft);margin-top:2px;} .ds-dp{font:500 1rem/1.3 var(--mono);white-space:nowrap;} .ds-diet{display:inline-block;width:14px;height:14px;border:1.5px solid #8B3A1A;border-radius:2px;position:relative;vertical-align:-1px;margin-left:7px;color:#8B3A1A;} .ds-diet::after{content:'';position:absolute;inset:2px 2px 3px;background:currentColor;clip-path:polygon(50% 0,100% 100%,0 100%);}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Hoarding",
+    "overview": "While the shop is being fitted out, the website is its site hoarding. The page is Tangra-red painted plywood (a repeating wood-grain raster under the brand red), and everything the visitor reads is pasted onto it: cream wheat-paste bills, a jade happy-hour bill and an amber feast bill, each a degree or two off square and lightly overlapping. Between the boards, the page drops onto plain cream paper stock for the food stations (WOK, STEAM), then into one dark ink band for DRAUGHT, where the beers hang as painted tap plaques. A tan-wood plate runs across the top as the rail.\n\nDensity is pub-menu generous: giant slab station words, real prices on every line, dashed rules between dishes like a printed bill of fare. The voice is warm and loud rather than posh. The only motion is physical: bills settle onto the board when the page loads and lift a few pixels under the pointer, like a sheet catching air.\n\nThe built page departs from the approved comp in three recorded ways. Real menu photographs (from the Menu repo's plating set) and the real pint-stack logo replace the comp's generated pictures, by owner decision. The jade bill is lettered in cream, not ink, because ink on jade measures 2.99:1. The hero reproduces the comp at roughly 70% overall in the comp diff; the composition, palette and type landed, the pictures and some proportions did not.",
+    "keyCharacteristics": [
+      "Red plywood ground with pasted paper bills, each rotated between -3deg and +3deg.",
+      "Alfa Slab One for every shouted word; IBM Plex Sans for reading; IBM Plex Mono for the numbers.",
+      "Paper is a material, not a colour: bills and slips carry a paper-grain raster, slips carry a deckled edge mask.",
+      "One dark band (DRAUGHT) per page; everything else sits on cream or red.",
+      "Motion is the paste-up and the lift, transform-only, and switched off under reduced motion."
+    ],
+    "rules": [
+      {
+        "name": "The Pinned Five Rule",
+        "body": "Red, cream, ink, amber and jade are fixed brand values. Supporting tones may be added only to sit on one of them (text on ink, faces of plaques), never as a sixth accent.",
+        "section": "colors"
+      },
+      {
+        "name": "The Lettering Follows Contrast Rule",
+        "body": "A bill's lettering is whichever of ink or cream clears 4.5:1 on its face: ink on cream and amber, cream on jade, red, and ink.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ledger Rule",
+        "body": "IBM Plex Mono sets prices, times and measures and nothing else. If it is not a number someone pays, waits for or pours, it is in Plex Sans or Alfa Slab One.",
+        "section": "typography"
+      },
+      {
+        "name": "The Slab Shouts Rule",
+        "body": "Alfa Slab One is never set below title size and never for running text; Plex Sans never sets a station word.",
+        "section": "typography"
+      },
+      {
+        "name": "The Warm Shadow Rule",
+        "body": "Shadows are tinted toward the red ground (rgba 60,14,6 and 40,8,2), never neutral black, except on the ink band where the plaque drop is black.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Crooked Paste Rule",
+        "body": "Every pasted element is rotated, between -3deg and +3deg, and neighbours generally lean opposite ways. Nothing pasted sits at 0deg on desktop.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "**Do** paste every poster-like block onto red plywood as a rotated bill with the pasted shadow.",
+      "**Do** letter jade bills in cream; ink on jade is 2.99:1.",
+      "**Do** set every price, time and measure in IBM Plex Mono Medium, never wrapped.",
+      "**Do** use real plated photography from the Menu repo for dishes and drinks; label any picture of an unbuilt room as an artist's impression.",
+      "**Do** keep motion to the paste-up (transform, 0.9s, cubic-bezier(.16,1,.3,1), staggered) and the 4px hover lift, and drop both under prefers-reduced-motion.",
+      "**Do** stack the hero on phones as poster, then the photo pair, then the happy-hour bill."
+    ],
+    "donts": [
+      "**Don't** add a sixth accent colour; supporting tones exist only to sit on the pinned five.",
+      "**Don't** set Alfa Slab One for running text, or Plex Mono for anything that is not a price, time or measure.",
+      "**Don't** square-up pasted bills or give them rounded corners; paper is sharp and crooked.",
+      "**Don't** use neutral grey shadows on the cream or red grounds.",
+      "**Don't** animate layout properties; the paste and lift are transform and shadow only."
+    ]
+  }
+}

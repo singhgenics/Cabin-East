@@ -1,0 +1,9 @@
+.DS_Store
+# design-process scratch (comps, captures, build state) stays local
+.impeccable/review/
+.impeccable/build/
+.impeccable/live/
+# owner's inspiration screenshots of third-party themes: not ours to publish
+reference/
+# superseded images
+assets/old/

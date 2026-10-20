@@ -1,0 +1,12 @@
+{
+  "title": "Choose the page structure",
+  "question": "The Cabin East brand is fixed (Tangra red, cream, slab lettering, pint-stack logo). Pick how the website is put together.",
+  "options": [
+    {"id":"hoarding","label":"The Hoarding","kicker":"THE ROLL","lineage":"Goa shopfront under fit-out, site hoarding with pasted street posters","thesis":"While the shop is being built, the website is its hoarding: the menu pasted up as posters.","palette":["#B5321C","#F2E8D2","#1C1714","#E49B1D","#2F6F57"],"materials":["painted plywood","paste-up posters","stencil lettering"],"viewport":"A red plywood hoarding fills the screen; one big pasted poster carries the logo, OPENING SOON IN BETALBATIM and two buttons; dish posters overlap at its edges.","risk":"Pasted-poster overlap can get busy; needs one poster clearly in charge.","comp":".impeccable/mocks/decision/hoarding.jpg"},
+    {"id":"steamer","label":"The Steamer Stack","lineage":"bamboo dim sum steamers stacked at the pass","thesis":"The page is a stack of steamer baskets; each section is a basket lifted to show what is inside.","palette":["#F2E8D2","#B5321C","#1C1714","#E49B1D"],"materials":["bamboo weave","cream paper","steam"],"viewport":"An open steamer seen from above, dumplings inside, logo and opening line set beside it on cream; the next basket's rim peeks below.","risk":"Strongest on dim sum; the beer has to earn its place lower down.","comp":".impeccable/mocks/decision/steamer.jpg"},
+    {"id":"pint","label":"Down the Pint","lineage":"the pint-stack logo read top to bottom","thesis":"Scroll down through the logo itself: foam and draught, then the steamer, then the wok flame, then the door.","palette":["#1C1714","#E49B1D","#F2E8D2","#B5321C"],"materials":["amber beer","slab lettering","dark bar wood"],"viewport":"A tall pint glass at hero scale on ink, foam at the top, the three layers labelled DRAUGHT, STEAM, WOK as the page navigation.","risk":"Dark first screen leans bar-at-night; lunch and family visitors may read it as late-night only.","comp":".impeccable/mocks/decision/pint.jpg"}
+  ],
+  "reroll": {"registers":["safer","bolder"]},
+  "buildPath": {"value":"comp","toggle":true},
+  "steer": true
+}
