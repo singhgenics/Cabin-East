@@ -54,9 +54,10 @@ const TAG = { goa: 'Goa' };
 const CHILLI = '<svg viewBox="0 0 12 16" aria-hidden="true"><path d="M7.5 1.2c.3 1-.1 1.8-.9 2.3 2.4.6 3.6 2.6 3.2 5.4-.5 3.3-3.3 6.1-7.6 6.5-.7.1-1-.6-.4-1 2.5-1.6 3.4-3.9 3.2-6.2-.1-1.6.6-3.2 2-4.1-.4-.6-.4-1.4.1-2 .2-.4.4-.6.4-.9z"/></svg>';
 
 // the diet mark and chillies ride on the name's last word so they never wrap onto a line of their own
+const marksHtml = (d, heat) => (d ? `<span class="diet diet-${d[0]}" title="${d[1]}"><span class="sr">${d[1]}</span></span>` : '')
+  + (heat ? `<span class="heat" title="Heat ${heat} of 2">${CHILLI.repeat(heat)}<span class="sr">Heat ${heat} of 2</span></span>` : '');
 function nameWithMarks(name, d, heat) {
-  const marks = (d ? `<span class="diet diet-${d[0]}" title="${d[1]}"><span class="sr">${d[1]}</span></span>` : '')
-    + (heat ? `<span class="heat" title="Heat ${heat} of 2">${CHILLI.repeat(heat)}<span class="sr">Heat ${heat} of 2</span></span>` : '');
+  const marks = marksHtml(d, heat);
   if (!marks) return esc(name);
   const k = name.lastIndexOf(' ');
   return `${esc(name.slice(0, k + 1))}<span class="nw">${esc(name.slice(k + 1))}${marks}</span>`;
@@ -109,7 +110,7 @@ webp('assets/plates/poster-paper.png', 'paper.webp', ['-q', '70', '-resize', '51
 webp('assets/plates/nav-logo.png', 'logo-line.webp', ['-q', '80', '-resize', '0', '160']);
 webp('assets/plates/poster-logo.png', 'logo-icon.webp', ['-q', '85', '-resize', '220', '0']);
 webp('assets/plates/nav-rail-strip.png', 'nav-rail.webp', ['-q', '72']);
-for (const f of ['wok-fire', 'steamer-stack', 'tap-pour', 'garden-dusk', 'beach', 'calcutta-lane', 'cabin-booths', 'noodle-cart']) webp(`assets/flow/${f}.jpg`, `${f}.webp`, ['-q', '78']);
+for (const f of ['wok-fire', 'steamer-stack', 'tap-pour', 'garden-dusk', 'beach', 'calcutta-lane', 'cabin-booths', 'noodle-cart', 'dimsum-hands', 'bao-lift', 'cocktail-bar', 'beer-trio']) webp(`assets/flow/${f}.jpg`, `${f}.webp`, ['-q', '78']);
 
 const raw = loadMenu();
 const food = clean(raw.food), drinks = clean(raw.drinks);
@@ -121,10 +122,20 @@ const menuHtml = `<div class="menu-panel" id="panel-food" role="tabpanel" aria-l
 // pull named dishes for the poster sections
 const all = [...food, ...drinks].flatMap(s => s.items.map(it => ({ sec: s.id, it })));
 const find = n => all.find(x => x.it[0].split('|')[0] === n)?.it;
-const pick = n => { const it = find(n); if (!it) throw new Error('menu has no ' + n); const [name, sub] = it[0].split('|'); return { name, sub: sub || '', what: it[1], story: it[2], price: price(it[3]), img: photo(PHOTO[name]) }; };
+// food rows are [title, what, how, price, diet, badge, heat, art]; drink rows drop the diet slot: [title, what, how, price, badge, heat, art]
+const fields = it => it.length >= 8 ? { diet: it[4], tag: it[5], heat: it[6], art: it[7] } : { diet: null, tag: it[4], heat: it[5], art: it[6] };
+const pick = n => {
+  const it = find(n); if (!it) throw new Error('menu has no ' + n);
+  const [name, sub] = it[0].split('|');
+  return { name, sub: sub || '', what: it[1], story: it[2], price: price(it[3]), img: photo(PHOTO[name]),
+    marks: marksHtml(DIET[fields(it).diet], fields(it).heat), tagmark: TAG[fields(it).tag] ? `<span class="tag">${TAG[fields(it).tag]}</span>` : '' };
+};
+const RAW = new Set(['marks', 'tagmark']); // these return markup, everything else is escaped text
+const count = k => k === 'taps' ? all.filter(x => fields(x.it).art && fields(x.it).art[0] === 'pint').length : all.filter(x => x.sec === k).length;
 
 let html = fs.readFileSync(path.join(ROOT, 'src/template.html'), 'utf8');
 html = html.replace('<!--MENU-->', menuHtml);
-html = html.replace(/\{\{([^}|]+)\|(name|sub|what|story|price|img)\}\}/g, (_, n, f) => esc(pick(n.trim())[f]));
+html = html.replace(/\{\{([^}|]+)\|(name|sub|what|story|price|img|marks|tagmark)\}\}/g, (_, n, f) => { const v = pick(n.trim())[f]; return RAW.has(f) ? v : esc(v); });
+html = html.replace(/\{\{#(dimsum|bao|cocktails|taps)\}\}/g, (_, k) => String(count(k)));
 fs.writeFileSync(path.join(ROOT, 'index.html'), html);
 console.log('index.html written:', food.length, 'food sections,', drinks.length, 'drinks sections');

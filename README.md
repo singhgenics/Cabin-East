@@ -35,3 +35,7 @@ The garden picture is an artist's impression and is labelled as one on the page.
 ## Story section
 
 `#story` tells the Calcutta-to-Goa history (copy in `src/template.html`; facts and caveats in `PRODUCT.md`). Its three illustrations (`calcutta`, `cabin`, `cart` in `src/gen-images.sh`) are Flow images in the Website project and are captioned as illustrations. `assets/site.js` sets the map step from the chapter in view; `?still` shows the finished page.
+
+## The moat sections
+
+Page order: hero, moat strip, Steam (dim sum, bao), Draught (craft beer, craft cocktails), deals, story, wok, garden, menu, find us. Dish and drink cards are pulled from the live menu by name in `src/template.html` (`{{Name|img}}` etc.); the counts in the moat strip are live (`{{#dimsum}}`). Four extra Flow scenes (`dimsum`, `bao`, `cocktails`, `beers` in `src/gen-images.sh`) are captioned as illustrations.

@@ -20,6 +20,10 @@ rail|assets/plates/nav-rail.png|16:9|src/flow/ref-rail.png
 calcutta|assets/flow/calcutta-lane.jpg|4:3|
 cabin|assets/flow/cabin-booths.jpg|4:3|
 cart|assets/flow/noodle-cart.jpg|4:3|
+dimsum|assets/flow/dimsum-hands.jpg|3:4|
+bao|assets/flow/bao-lift.jpg|4:3|
+cocktails|assets/flow/cocktail-bar.jpg|4:3|
+beers|assets/flow/beer-trio.jpg|4:3|
 "
 want=" $* "
 echo "$JOBS" | while IFS='|' read -r job out asp refs; do

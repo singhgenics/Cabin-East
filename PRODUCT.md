@@ -21,6 +21,8 @@ The public website for Cabin East, a small Pan-Asian pub that is **opening soon*
 
 ## Positioning
 
+**The moat (owner, 2026-10-21): dim sum, bao, craft beer and craft cocktails.** The site leads with them, in that order: hero pitch, a four-cell moat strip, a Steam chapter (dim sum, bao), a Draught chapter (craft beer, craft cocktails), then the story and the wok. Wok stays a major pillar but no longer opens the page.
+
 Indo-Chinese from the wok, dim sum and bao from the steamer, and craft beer from Goa's own small breweries on tap, in one small, warm room with a beer garden a short walk from the Arabian Sea. Tagline: WOK | STEAM | DRAUGHT. Local ingredients carry real stories (chouriço siu mai, kokum gose, Paul John single malt from Cuncolim, courtyard tulsi).
 
 ## Operating Context

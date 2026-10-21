@@ -490,3 +490,105 @@ a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1.5p
   .route path { stroke-dashoffset: 0 !important; transition: none !important; }
   .route .stop, .route .od { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
+
+/* ---- the moat: dim sum, bao, craft beer, craft cocktails ---- */
+.moat { max-width: 1400px; margin: 0 auto; padding: clamp(48px, 7vw, 104px) var(--gut) clamp(32px, 5vw, 72px); }
+.moat-title { font: 400 clamp(2.4rem, 7.4vw, 6.6rem)/.98 var(--slab); text-transform: uppercase; color: var(--ink); text-wrap: balance; }
+.moat-title .r { color: var(--red); }
+.moat-lede { margin-top: 20px; }
+.moat-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin-top: clamp(28px, 4vw, 56px); border-top: 2px solid var(--ink); }
+.mcell { display: grid; grid-template-rows: auto auto auto 1fr auto; gap: 8px; height: 100%; padding: 22px 22px 26px; border-right: 1.5px dashed rgba(28, 23, 20, .28); text-decoration: none; transition: background-color 200ms ease; }
+.moat-grid li:last-child .mcell { border-right: 0; }
+.mcell .ph { aspect-ratio: 4 / 3; box-shadow: var(--shadow); margin-bottom: 10px; }
+.mcell .num { font: 400 clamp(3.4rem, 6vw, 5.2rem)/.9 var(--slab); color: var(--red); }
+.mcell h3 { font: 400 1.5rem/1.05 var(--slab); text-transform: uppercase; }
+.mcell p:not(.num) { color: var(--ink-soft); line-height: 1.45; }
+.mcell .go { margin-top: 8px; min-height: 44px; align-items: center; }
+@media (hover: hover) and (pointer: fine) { .mcell:hover { background: rgba(255, 255, 255, .35); } .mcell:hover .go svg { transform: translateX(5px); } }
+
+/* shared station headers */
+.st-head { display: grid; grid-template-columns: auto 1fr; gap: 20px clamp(24px, 4vw, 64px); align-items: end; margin-bottom: clamp(36px, 5vw, 72px); }
+.st-head .lede { padding-bottom: .6em; }
+.sub-title { font: 400 clamp(2rem, 4vw, 3.4rem)/1 var(--slab); text-transform: uppercase; color: var(--red); }
+.sub-title small { display: block; margin-top: .5em; font: 600 .9375rem/1 var(--sans); letter-spacing: .08em; color: var(--ink-soft); text-transform: uppercase; }
+.sub-title.amber { color: var(--amber); } .sub-title.cream { color: var(--cream); }
+.sub-title.amber small, .sub-title.cream small { color: #BDB09A; }
+.giant-s { font-size: clamp(3.6rem, 9vw, 7.5rem); }
+
+/* STEAM: dim sum and bao as big paste-up cards */
+.steam2 { max-width: 1600px; margin: 0 auto; padding-top: clamp(40px, 5vw, 72px); }
+.dim { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.6fr); gap: clamp(24px, 4vw, 64px); align-items: start; }
+.dim-photo { position: sticky; top: 88px; }
+.dim-photo .ph { aspect-ratio: 3 / 4; box-shadow: var(--shadow); rotate: -1deg; }
+.dim-photo figcaption, .bao-photo figcaption, .beer-photo figcaption, .ck-photo figcaption { margin-top: 10px; font-size: .875rem; font-style: italic; color: var(--ink-soft); }
+.pcards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(18px, 2.4vw, 32px); margin-top: 28px; }
+.pcards-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pcard { display: grid; grid-template-rows: auto 1fr auto; gap: 14px; padding: 14px 14px 18px; background: var(--paper) url("img/paper.webp"); background-size: 512px; box-shadow: var(--shadow); border: 1px solid rgba(28, 23, 20, .1); }
+.pcard:nth-child(odd) { rotate: -.5deg; } .pcard:nth-child(even) { rotate: .5deg; translate: 0 10px; }
+.pcard .ph { aspect-ratio: 4 / 3; }
+.pc-body { display: grid; gap: 6px; align-content: start; }
+.pcard h4 { font: 400 clamp(1.3rem, 1.8vw, 1.6rem)/1.1 var(--slab); text-transform: none; }
+.pc-sub { font-weight: 600; }
+.pc-what { color: var(--ink-soft); font-size: .9375rem; line-height: 1.45; }
+.pc-story { font-size: .9375rem; line-height: 1.45; }
+.pcard .price { font-size: 1.25rem; border-top: 1.5px dashed rgba(28, 23, 20, .28); padding-top: 10px; }
+.pcard h4 .diet { vertical-align: 2px; margin-left: 6px; }
+.bao { margin-top: clamp(56px, 8vw, 112px); }
+.bao-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
+.bao-copy .lede { margin-top: 20px; }
+.bao-photo .ph { aspect-ratio: 4 / 3; box-shadow: var(--shadow); rotate: .8deg; }
+.bao .pcards { margin-top: clamp(24px, 3vw, 40px); }
+.proof { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: clamp(48px, 7vw, 96px); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+.proof li { display: grid; gap: 6px; padding: 22px 18px; border-right: 1.5px dashed rgba(28, 23, 20, .28); }
+.proof li:last-child { border-right: 0; }
+.proof .n { font: 400 clamp(1.6rem, 3.4vw, 2.8rem)/1 var(--slab); color: var(--red); text-transform: uppercase; }
+.proof span:last-child { color: var(--ink-soft); }
+.steam-cta { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; }
+.steam-for-two { font-weight: 500; max-width: 46ch; }
+
+/* DRAUGHT: craft beer, then craft cocktails, on the ink band */
+.draught .st-head .lede { color: #E6DAC0; }
+.beer-top { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 64px); align-items: start; }
+.beer-photo .ph, .ck-photo .ph { aspect-ratio: 4 / 3; box-shadow: 0 18px 40px -20px #000; }
+.beer-photo figcaption, .ck-photo figcaption { color: #BDB09A; }
+.beer-copy .lede { margin: 18px 0 24px; color: #E6DAC0; }
+.beer-copy .taps { margin-top: 0; }
+.tap h4 { font: 400 clamp(1.5rem, 2.4vw, 2.1rem)/1 var(--slab); }
+.tap-2 h4 .tag { vertical-align: 4px; margin-left: 6px; }
+.beer-extra { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: clamp(28px, 4vw, 48px); }
+.beer-extra li { display: grid; grid-template-columns: 150px 1fr auto; gap: 18px; align-items: center; padding: 14px; background: #2A221D; box-shadow: inset 0 0 0 1px rgba(242, 232, 210, .14); }
+.beer-extra .ph { aspect-ratio: 1; } .beer-extra h4 { font: 400 1.3rem/1.1 var(--slab); }
+.beer-extra p { color: #CFC3AB; font-size: .9375rem; line-height: 1.45; margin-top: 4px; }
+.beer-extra .price { color: var(--amber); }
+.cocktails { margin-top: clamp(64px, 9vw, 128px); }
+.ck-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: clamp(24px, 4vw, 64px); align-items: center; margin-bottom: clamp(28px, 4vw, 48px); }
+.ck-copy .lede { margin-top: 18px; color: #E6DAC0; }
+.ccards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(16px, 2vw, 28px); }
+.ccard { display: grid; grid-template-rows: auto auto 1fr auto auto; gap: 6px; padding-bottom: 14px; border-bottom: 1px solid rgba(242, 232, 210, .18); }
+.ccard .ph { aspect-ratio: 4 / 5; margin-bottom: 8px; }
+.ccard h4 { font: 400 1.25rem/1.1 var(--slab); }
+.ccard .tag { margin-left: 6px; vertical-align: 3px; }
+.ccard p { color: #CFC3AB; font-size: .9375rem; line-height: 1.45; }
+.ccard .cc-how { font-size: .875rem; color: #BDB09A; }
+.ccard .price { color: var(--amber); margin-top: 4px; }
+
+@media (max-width: 1100px) {
+  .moat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .moat-grid li:nth-child(2) .mcell { border-right: 0; } .moat-grid li:nth-child(n+3) .mcell { border-top: 1.5px dashed rgba(28, 23, 20, .28); }
+  .ccards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pcards-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .st-head, .dim, .bao-top, .beer-top, .ck-top { grid-template-columns: 1fr; }
+  .dim-photo { position: static; } .dim-photo .ph { aspect-ratio: 4 / 3; }
+  .proof { grid-template-columns: repeat(2, minmax(0, 1fr)); } .proof li:nth-child(2) { border-right: 0; } .proof li:nth-child(n+3) { border-top: 1.5px dashed rgba(28, 23, 20, .28); }
+  .beer-extra { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .moat-grid { grid-template-columns: 1fr; } .mcell { border-right: 0 !important; border-top: 1.5px dashed rgba(28, 23, 20, .28); } .moat-grid li:first-child .mcell { border-top: 0; }
+  .pcards, .pcards-3, .ccards { grid-template-columns: 1fr; }
+  .pcard:nth-child(even) { translate: none; }
+  .beer-extra li { grid-template-columns: 96px 1fr; } .beer-extra .price { grid-column: 2; }
+  .ccards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+}
+
