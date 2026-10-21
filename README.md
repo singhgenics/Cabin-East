@@ -31,3 +31,7 @@ The garden picture is an artist's impression and is labelled as one on the page.
 - `PRODUCT.md`: product facts and constraints.
 - `DESIGN.md`: the visual system (the hoarding: red plywood, pasted cream bills, Alfa Slab One).
 - `.impeccable/mocks/decision/`: the three direction comps; `hoarding.jpg` was chosen.
+
+## Story section
+
+`#story` tells the Calcutta-to-Goa history (copy in `src/template.html`; facts and caveats in `PRODUCT.md`). Its three illustrations (`calcutta`, `cabin`, `cart` in `src/gen-images.sh`) are Flow images in the Website project and are captioned as illustrations. `assets/site.js` sets the map step from the chapter in view; `?still` shows the finished page.

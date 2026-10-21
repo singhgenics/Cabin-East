@@ -31,6 +31,8 @@ Indo-Chinese from the wok, dim sum and bao from the steamer, and craft beer from
 
 ## Capabilities and Constraints
 
+- Story facts to keep hedged (sources differ): Atchew (Yang Dazhao) arrived in the 1770s (not 1778) and the village is Achipur; Tiretta Bazaar is the first Chinatown, Tangra the second (tanneries); Calcutta's cabins were curtained wooden booths; Chicken Manchurian is credited to Nelson Wang at the Cricket Club of India, Mumbai, 1975; chilli chicken's origin is one cook's recollection.
+
 - No bookings, no ordering, no sign-up: the site is informational while the pub is pre-launch. Walk-ins only once open.
 - No phone number, email or social handles exist yet. Do not invent them; leave space to add later.
 - Opening date is not set. Say "opening soon", never a date.
@@ -53,5 +55,5 @@ Indo-Chinese from the wok, dim sum and bao from the steamer, and craft beer from
 
 1. Warm before posh: it is a neighbourhood pub, not a fine-dining room.
 2. Show the food and the pour; let photos sell.
-3. Tell the local story truthfully: Goa ingredients and taps. Never mention Kolkata, Tangra or City of Joy (owner, 2026-10-20).
+3. Tell the story truthfully. The site's story section (owner request, 2026-10-21) tells how Indo-Chinese food was born in Calcutta and reached Goa, and is the one place that names Calcutta, Tiretta Bazaar, Tangra and the cabins. Everywhere else (menu, brand and marketing copy) the earlier rule holds: never mention Kolkata, Tangra or City of Joy (owner, 2026-10-20). Story pictures are labelled illustrations; history claims are hedged to what the sources support.
 4. Never promise what doesn't exist yet (dates, bookings, contacts).

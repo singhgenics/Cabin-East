@@ -41,4 +41,26 @@ if (still || !('IntersectionObserver' in window)) {
   }), { threshold: .18, rootMargin: '0px 0px -6% 0px' });
   targets.forEach(el => io.observe(el));
 }
+// lazy images fade in when they finish loading instead of popping in (an already-cached image is ready at once)
+document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+  const ready = () => img.classList.add('ready');
+  if (img.complete) ready(); else { img.addEventListener('load', ready, { once: true }); img.addEventListener('error', ready, { once: true }); }
+});
+
+// the story: the chapter crossing the middle of the screen sets the step the route map draws to
+const story = document.querySelector('.story');
+const chapters = [...document.querySelectorAll('.chapter')];
+if (story && chapters.length) {
+  const setStep = ch => {
+    story.dataset.step = ch.dataset.step;
+    chapters.forEach(c => c.classList.toggle('on', c === ch));
+  };
+  if (still || !('IntersectionObserver' in window)) { story.dataset.step = '6'; chapters.forEach(c => c.classList.add('on')); }
+  else {
+    setStep(chapters[0]);
+    const so = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) setStep(e.target); }),
+      { rootMargin: '-38% 0px -50% 0px' });
+    chapters.forEach(c => so.observe(c));
+  }
+}
 document.documentElement.classList.add('motion');

@@ -123,7 +123,7 @@ components:
 
 While the shop is being fitted out, the website is its site hoarding. The page is Cabin-red painted plywood (a repeating wood-grain raster under the brand red), and everything the visitor reads is pasted onto it: cream wheat-paste bills, a jade happy-hour bill and an amber feast bill, each a degree or two off square and lightly overlapping. Between the boards, the page drops onto plain cream paper stock for the food stations (WOK, STEAM), then into one dark ink band for DRAUGHT, where the beers hang as painted tap plaques. A tan-wood plate runs across the top as the rail.
 
-Density is pub-menu generous: giant slab station words, real prices on every line, dashed rules between dishes like a printed bill of fare. The voice is warm and loud rather than posh. The motion is physical and plays once: bills are pasted onto the board as the page loads and as the deals board scrolls in, photos are unrolled with a clip reveal, lists rise in with a short stagger, and the Opening soon stamp lands. Under a real pointer a bill lifts three pixels, like a sheet catching air.
+Density is pub-menu generous: giant slab station words, real prices on every line, dashed rules between dishes like a printed bill of fare. The voice is warm and loud rather than posh. The motion is physical and plays once: bills are pasted onto the board as the page loads and as the deals board scrolls in, photos settle in from a slight zoom inside a fixed frame and drift a few percent as they scroll, lists rise in with a short stagger, and the Opening soon stamp lands. Under a real pointer a bill lifts three pixels, like a sheet catching air.
 
 The built page departs from the approved comp in three recorded ways. Real menu photographs (from the Menu repo's plating set) and the real pint-stack logo replace the comp's generated pictures, by owner decision. The jade bill is lettered in cream, not ink, because ink on jade measures 2.99:1. The hero reproduces the comp at roughly 70% overall in the comp diff; the composition, palette and type landed, the pictures and some proportions did not.
 
@@ -132,7 +132,7 @@ The built page departs from the approved comp in three recorded ways. Real menu 
 - Alfa Slab One for every shouted word; IBM Plex Sans for reading; IBM Plex Mono for the numbers.
 - Paper is a material, not a colour: bills and slips carry a paper-grain raster, slips carry a deckled edge mask.
 - One dark band (DRAUGHT) per page; everything else sits on cream or red.
-- Motion is the paste-up, the once-only scroll-ins and the lift: transform, opacity and clip-path only, played once, and reduced (movement removed, colour and opacity kept) under reduced motion.
+- Motion is the paste-up, the once-only scroll-ins and the lift: transform, opacity and (for the map route) stroke offset only, played once, and reduced (movement removed, colour and opacity kept) under reduced motion.
 
 ## Colors
 
@@ -236,6 +236,12 @@ Beers on the ink band as painted plaques: plaque-wood face, 4px corners, a frame
 ### Menu
 Two tabs (Food, Drinks) in a 2px ink-bordered strip with 6px corners; selected tab is ink with cream label. Dishes are two-column grids (optional 76px thumbnail, name block, mono price), separated by dashed rules, set in two text columns that break cleanly. Diet marks are the Indian square symbol (green dot for veg, brown triangle for non-veg, split for either); heat is a small red chilli SVG repeated per level.
 
+### Story (From a Calcutta street to a Goa beach)
+A cream-paper section after the hero. A sticky jade bill on the left holds a dotted route map (no country outline, on purpose): Calcutta, then Mumbai (1975), then Betalbatim, with other cities as dim dots, in cream on jade for contrast. Six chapters scroll on the right: slab headings, a red slab year only where a year carries information, body copy at 17-19px, and a pasted print with an italic caption saying it is an illustration, never a historical photograph. The chapter crossing the middle of the screen is full strength and the others sit back (desktop); that chapter sets the step the map draws to. On phones the map shows the whole route at once. Sources and the "told differently by different sources" caveat sit in a small note at the end. This is the one place on the site that names Calcutta, Tiretta Bazaar and Tangra (owner's request, 2026-10-21).
+
+### Photo frames
+Every large photo sits in a clipping frame (`.ph`, `overflow: clip`) that owns the size, shadow and rotation; the image inside rests at 1.12 scale, settles in from 1.26 with a fade over 1.2s on first view, and drifts +/-5% with a scroll-linked animation where the browser supports `animation-timeline: view()`. Lazy images fade in when they finish loading.
+
 ### Opening-soon stamp
 A 148px ink disc with a double amber ring, cream slab lettering, rotated 12deg and overlapping the Find us board's corner.
 
@@ -254,4 +260,4 @@ A 148px ink disc with a double amber ring, cream slab lettering, rotated 12deg a
 - **Don't** set Alfa Slab One for running text, or Plex Mono for anything that is not a price, time or measure.
 - **Don't** square-up pasted bills or give them rounded corners; paper is sharp and crooked.
 - **Don't** use neutral grey shadows on the cream or red grounds.
-- **Don't** animate layout or paint properties; motion is transform, opacity and clip-path, and the hover shadow is a pseudo-element faded by opacity.
+- **Don't** animate layout or paint properties; motion is transform, opacity and the map route's stroke offset, and the hover shadow is a pseudo-element faded by opacity.

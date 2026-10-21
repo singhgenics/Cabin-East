@@ -17,6 +17,9 @@ tap|assets/flow/tap-pour.jpg|3:4|$PLATING/pitcher.jpg
 garden|assets/flow/garden-dusk.jpg|16:9|
 beach|assets/flow/beach.jpg|4:3|
 rail|assets/plates/nav-rail.png|16:9|src/flow/ref-rail.png
+calcutta|assets/flow/calcutta-lane.jpg|4:3|
+cabin|assets/flow/cabin-booths.jpg|4:3|
+cart|assets/flow/noodle-cart.jpg|4:3|
 "
 want=" $* "
 echo "$JOBS" | while IFS='|' read -r job out asp refs; do
