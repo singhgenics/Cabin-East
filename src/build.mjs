@@ -107,8 +107,8 @@ const webp = (src, out, args) => {
 for (const f of ['photo-chicken', 'photo-paddle', 'dish1-photo', 'dish2-photo', 'dish3-photo']) webp(`assets/plates/${f}.png`, `${f}.webp`, ['-q', '80']);
 webp('assets/plates/hoarding-wood.png', 'hoarding-wood.webp', ['-q', '72', '-resize', '1376', '0']);
 webp('assets/plates/poster-paper.png', 'paper.webp', ['-q', '70', '-resize', '512', '0']);
-webp('assets/plates/nav-logo.png', 'logo-line.webp', ['-q', '80', '-resize', '0', '160']);
-webp('assets/plates/poster-logo.png', 'logo-icon.webp', ['-q', '85', '-resize', '220', '0']);
+webp('assets/plates/nav-logo.png', 'logo-line.webp', ['-q', '90', '-resize', '0', '240']);
+webp('assets/plates/poster-logo.png', 'logo-icon.webp', ['-q', '92', '-resize', '440', '0']);
 webp('assets/plates/nav-rail-strip.png', 'nav-rail.webp', ['-q', '72']);
 for (const f of ['wok-fire', 'steamer-stack', 'tap-pour', 'garden-dusk', 'beach', 'calcutta-lane', 'cabin-booths', 'noodle-cart', 'dimsum-hands', 'bao-lift', 'cocktail-bar', 'beer-trio']) webp(`assets/flow/${f}.jpg`, `${f}.webp`, ['-q', '78']);
 
