@@ -315,7 +315,7 @@ a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1.5p
 .menu-sec-head h3 { font: 400 clamp(1.7rem, 2.4vw, 2.2rem)/1 var(--slab); color: var(--red); text-transform: uppercase; }
 .menu-sec-head p { font-size: .9375rem; font-style: italic; color: var(--ink-soft); margin-top: 6px; }
 .dish { display: grid; grid-template-columns: 1fr auto; gap: 2px 16px; padding: 14px 0; border-bottom: 1.5px dashed rgba(28, 23, 20, .22); break-inside: avoid; }
-.dish.has-img { grid-template-columns: 76px 1fr auto; }
+.dish.has-img { grid-template-columns: 76px minmax(0, 1fr) auto; }
 .dish-img { width: 76px; height: 76px; object-fit: cover; border-radius: 4px; }
 .dish-name { font: 400 1.15rem/1.2 var(--slab); }
 .dish-name .nw { white-space: nowrap; }
@@ -366,7 +366,7 @@ a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1.5p
 /* tablet */
 @media (max-width: 1100px) {
   .wok-top { grid-template-columns: 1fr; }
-  .bills { grid-template-columns: 1fr 1fr; }
+  .bills { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .bills .bill:nth-child(n) { margin-top: 0; }
 }
 
@@ -377,7 +377,7 @@ a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1.5p
   .rail-logo img { height: 34px; }
   .rail-nav { justify-content: space-between; padding: 6px 0 4px; }
   .rail-nav a { font-size: .875rem; letter-spacing: .02em; padding: 0; white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
-  .board { aspect-ratio: auto; min-height: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; padding: 22px var(--gut) 40px; }
+  .board { aspect-ratio: auto; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 12px; padding: 22px var(--gut) 40px; }
   .board .bill { position: relative; left: auto; top: auto; width: auto; height: auto; }
   .board .bill-main { grid-column: 1 / -1; order: 1; padding: 30px 20px 28px; rotate: -.8deg; }
   .board .bill-chicken { order: 2; aspect-ratio: 1; margin-top: -10px; rotate: -3deg; }
@@ -592,3 +592,8 @@ a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1.5p
   .ccards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 }
 
+
+/* never let rotated bills or scaled photos widen the page on phones */
+html, body { overflow-x: hidden; overflow-x: clip; }
+@media (max-width: 560px) { .bills { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 400px) { .dish { column-gap: 10px; } .dish-price { white-space: normal; max-width: 5.5em; } }
