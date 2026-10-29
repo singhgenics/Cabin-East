@@ -176,7 +176,7 @@ function pour() {
       <canvas class="pour-canvas" width="405" height="720" aria-hidden="true"></canvas>
     </div>
     <div class="xv-bar" aria-hidden="true"><i></i></div>
-    <p class="xv-cap"><span>Poured at an angle, topped with a finger of foam.</span> <a href="#beer">See the taps</a> <em>Illustration</em></p>
+    <p class="xv-cap"><span>Poured to order, topped with a finger of foam.</span> <a href="#beer">See the taps</a> <em>Illustration</em></p>
   </div>
 </section>`;
 }

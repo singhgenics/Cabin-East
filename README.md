@@ -53,3 +53,9 @@ Whole-page smooth scrolling is Lenis (self-hosted `assets/lenis.min.js`, v1.1.20
 `assets/video/wok-toss.mp4` is a Flow image-to-video clip (Veo Lite, started from `assets/flow/wok-fire.jpg`, prompt in `src/flow/wok-toss.txt`), cut so its last 0.6s dissolves into its first and it loops without a jump (`ffmpeg` xfade, audio dropped, 960 px wide). It plays only while on screen and not under reduced motion. If `gflow video i2v` ends with "no signed media URL", the clip was still made and paid for: `gflow data list videos`, then `gflow data download <media_id>` recovers it free.
 
 `assets/video/cocktail-shake.mp4` is the same kind of clip for the craft cocktails picture (start frame `assets/flow/cocktail-bar.jpg`, prompt `src/flow/cocktail-shake.txt`).
+
+## More Flow video
+
+`src/gen-video.sh [job]` makes the clips (Veo Lite, ~10 credits each, one at a time; prompts `src/flow/v-*.txt`, raw files in `/tmp/vids`). Encode as loops with the same ffmpeg xfade recipe, 800 px wide (480 for portrait), into `assets/video/`: `dimsum-pleat`, `bao-steam`, `beer-trio`, `garden-dusk`, `noodle-cart`, plus `wok-toss` and `cocktail-shake`. Each plays only while on screen.
+
+The beer pour scene (`assets/pour/f-000..065.webp`) is the `pour` clip (first 5.5 s, 12 fps, 405x720 frames, start frame `assets/flow/pour-start.jpg`) played by scroll position on a canvas (`data-pour` in `assets/site.js`).
