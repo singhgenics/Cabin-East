@@ -610,7 +610,7 @@ html, body { overflow-x: hidden; overflow-x: clip; }
 .xv-word { position: absolute; left: 50%; top: 47%; translate: -50% -50%; margin: 0; font: 400 clamp(5rem, 19vw, 19rem)/.82 var(--slab); text-transform: uppercase; white-space: nowrap; color: rgba(242, 232, 210, .11); pointer-events: none; z-index: 0; will-change: transform; }
 .xv-stage { position: relative; z-index: 1; height: min(80svh, 860px); aspect-ratio: var(--ratio); max-width: 100%; will-change: transform; }
 .xv-l { position: absolute; display: block; height: auto; will-change: transform; filter: drop-shadow(0 20px 26px rgba(0, 0, 0, .38)); }
-.xv-tag { position: absolute; z-index: 3; white-space: nowrap; font: 500 .8125rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink); background: var(--paper); padding: 9px 11px 8px; box-shadow: 0 3px 0 rgba(0, 0, 0, .28); transform: translateY(-50%); }
+.xv-tag { position: absolute; z-index: 10; white-space: nowrap; font: 500 .8125rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink); background: var(--paper); padding: 9px 11px 8px; box-shadow: 0 3px 0 rgba(0, 0, 0, .28); transform: translateY(-50%); }
 .xv-tag-l { right: 100%; margin-right: 22px; } .xv-tag-r { left: 100%; margin-left: 22px; }
 .xv-tag::after { content: ''; position: absolute; top: 50%; width: 22px; border-top: 1.5px solid var(--cream); }
 .xv-tag-l::after { left: 100%; } .xv-tag-r::after { right: 100%; }
@@ -631,8 +631,11 @@ html, body { overflow-x: hidden; overflow-x: clip; }
 }
 
 .xv img { transition: none !important; }
-.xv-whole { position: absolute; display: block; height: auto; opacity: 0; pointer-events: none; will-change: transform, opacity; filter: drop-shadow(0 20px 26px rgba(0, 0, 0, .38)); }
+.xv-whole { position: absolute; z-index: 6; display: block; height: auto; opacity: 0; pointer-events: none; will-change: transform, opacity; filter: drop-shadow(0 20px 26px rgba(0, 0, 0, .38)); }
 .xv-beer .xv-whole { filter: drop-shadow(0 16px 22px rgba(0, 0, 0, .5)); }
 .xv-calm .xv-whole { display: none; }   /* scroll drives these every frame: no fade-in, no easing lag */
 .xv-on .xv-stage { opacity: 0; transition: opacity 420ms var(--ease); }
 .xv-on .xv-stage.xv-ready { opacity: 1; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: clip; }

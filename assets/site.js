@@ -64,6 +64,22 @@ if (story && chapters.length) {
   }
 }
 
+
+// whole-page smooth scrolling (Lenis, self-hosted): wheel and trackpad glide, touch stays native, anchors ease to their target
+let lenis = null;
+if (!still && window.Lenis && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  lenis = new Lenis({ lerp: .085, wheelMultiplier: 1, smoothWheel: true });
+  const loop = t => { lenis.raf(t); requestAnimationFrame(loop); };
+  requestAnimationFrame(loop);
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]'); if (!a || a.getAttribute('href').length < 2) return;
+    const to = document.querySelector(a.getAttribute('href')); if (!to) return;
+    e.preventDefault();
+    lenis.scrollTo(to, { offset: -(parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0), duration: 1.3, easing: t => 1 - Math.pow(1 - t, 4) });
+    history.pushState(null, '', a.getAttribute('href'));
+  });
+}
+
 // exploded views: a tall section pins the stage while scroll pulls the layers together into one dish.
 // The scroll position only sets a target; the picture eases toward it every frame, so wheel notches and
 // touch flicks glide instead of stepping (frame-rate independent, nothing but transform and opacity moves).
@@ -126,7 +142,7 @@ if (xvs.length) {
         if (!it.live) return;
         if (it.cur < 0) it.cur = it.target;
         const d = it.target - it.cur;
-        if (Math.abs(d) > .0004) { it.cur += d * (1 - Math.exp(-dt / 95)); busy = true; draw(it); }   // ~95ms time constant
+        if (Math.abs(d) > .0004) { it.cur += d * (1 - Math.exp(-dt / (lenis ? 55 : 95))); busy = true; draw(it); }   // ~95ms time constant
         else if (it.cur !== it.target) { it.cur = it.target; draw(it); }
       });
       if (busy) requestAnimationFrame(frame); else { running = false; last = 0; }
