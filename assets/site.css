@@ -743,3 +743,7 @@ html.lenis, html.lenis body { height: auto; }
 .hoarding { background: linear-gradient(rgba(31, 61, 46, .84), rgba(31, 61, 46, .84)), url("img/hoarding-wood-green.webp") center / auto 100% repeat-x, var(--bottle); border-top: 3px solid var(--brass); border-bottom: 3px solid var(--brass); }
 .xv-dimsum { background: radial-gradient(ellipse at 50% 46%, rgba(0, 0, 0, 0) 20%, rgba(32, 12, 6, .6) 100%), linear-gradient(rgba(169, 83, 58, .88), rgba(169, 83, 58, .88)), url("img/hoarding-wood-brick.webp") center / cover, var(--brick); }
 .xv-bao, .xv-beer { border-top: 3px solid var(--brass); }
+
+/* softer big colours (2026-10-29): the story map in a deep navy, the dim sum scene in a deeper brick */
+:root { --goa-navy: #1B3070; --brick-deep: #7E3B29; --jade: var(--goa-navy); }
+.xv-dimsum { background: radial-gradient(ellipse at 50% 46%, rgba(0, 0, 0, 0) 18%, rgba(24, 8, 4, .66) 100%), linear-gradient(rgba(126, 59, 41, .9), rgba(126, 59, 41, .9)), url("img/hoarding-wood-brick.webp") center / cover, var(--brick-deep); }

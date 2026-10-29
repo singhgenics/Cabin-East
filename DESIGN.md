@@ -141,6 +141,9 @@ The owner moved the site to the garden decor palette (Garden/Decor page). Bottle
 ### Calmer hoarding (2026-10-29)
 The plywood is toned down: the deals and Find us boards are flat bottle green with a faint grain (84% green over the texture) between two thin brass rules, the dim sum scene is flat old brick with the same faint grain, and the bao and beer scenes get a thin brass line on top. A Gloock and Figtree type change was previewed the same day and declined (the site keeps Alfa Slab One, IBM Plex Sans and Mono).
 
+### Softer big colours (2026-10-29)
+The story route card is a deep navy `#1B3070` (`--goa-navy`, via `--jade`) instead of the electric Goa blue, and the dim sum scene is a deeper brick `#7E3B29` (`--brick-deep`) under the same faint grain. Goa blue `#2443A6` and Old brick `#A9533A` stay in the palette for small accents.
+
 ## Colors
 
 Five pinned brand colours from the Cabin Red kit, plus a small set of supporting tones that exist only to sit on those five.
