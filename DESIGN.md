@@ -144,6 +144,9 @@ The plywood is toned down: the deals and Find us boards are flat bottle green wi
 ### Softer big colours (2026-10-29)
 The story route card is a deep navy `#1B3070` (`--goa-navy`, via `--jade`) instead of the electric Goa blue, and the dim sum scene is a deeper brick `#7E3B29` (`--brick-deep`) under the same faint grain. Goa blue `#2443A6` and Old brick `#A9533A` stay in the palette for small accents.
 
+### Logo (2026-10-29)
+The logo is the original vector artwork recoloured to the palette (wordmark bottle green `#1F3D2E`, beer and steamer brass `#C49A3C`, flame and outline accents old brick `#A9533A`, linework green-black `#17221C`; cream untouched), not a Flow redraw. A reversed mark (cream linework) sits over the dark hero video. Sources: Dream/CabinEast/brand-kit/logo `cabin-east-lockup-horizontal-green*.svg` and `cabin-east-icon-mark-green*.svg`; the site rasters are rendered from them (`assets/plates/nav-logo.png`, `poster-logo.png`, `assets/img/logo-icon-rev.webp`, favicon `logo-icon.png`). It was also made bigger: 54 px in the nav (44 px on phones, rail 68 px / 118 px), 84 px in the footer, up to 140 px in the hero. The link-preview image `assets/img/og.jpg` is a screenshot of the hero and must be regenerated whenever the hero changes.
+
 ## Colors
 
 Five pinned brand colours from the Cabin Red kit, plus a small set of supporting tones that exist only to sit on those five.
