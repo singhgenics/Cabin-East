@@ -150,13 +150,14 @@ const XV = {
 const pct = v => (v * 100).toFixed(3) + '%';
 function explode(name) {
   const d = JSON.parse(fs.readFileSync(path.join(ROOT, `src/explode/${name}.json`), 'utf8')), c = XV[name];
-  const layers = d.layers.map((l, i) => `<img class="xv-l" src="assets/explode/${name}-${i}.webp" alt="" data-dy="${l.dy.toFixed(4)}" data-i="${i}" style="left:${pct(l.x)};top:${pct(l.y)};width:${pct(l.w)}" width="${Math.round(l.w * 896)}" height="${Math.round(l.h * 1200)}" loading="lazy">`).join('');
+  const layers = d.layers.map((l, i) => `<img class="xv-l" src="assets/explode/${name}-${i}.webp" alt="" data-dy="${l.dy.toFixed(4)}" data-i="${i}" style="left:${pct(l.x)};top:${pct(l.y)};width:${pct(l.w)}" width="${Math.round(l.w * 896)}" height="${Math.round(l.h * 1200)}" decoding="async">`).join('');
   const tags = d.layers.map((l, i) => `<span class="xv-tag xv-tag-${i % 2 ? 'r' : 'l'}" data-dy="${l.dy.toFixed(4)}" style="top:${pct(l.y + l.h / 2)}">${c.tags[i]}</span>`).join('');
+  const w = d.whole, whole = `<img class="xv-whole" src="assets/explode/${name}-whole.webp" alt="" style="left:${pct(w.x)};top:${pct(w.y)};width:${pct(w.w)}" width="600" height="800" decoding="async">`;
   return `<section class="xv xv-${name}" data-xv aria-label="${esc(c.kicker)}">
   <div class="xv-stick">
     <p class="xv-kicker">${c.kicker}</p>
     <p class="xv-word" aria-hidden="true">${c.word}</p>
-    <div class="xv-stage" style="--ratio:${d.ratio.toFixed(4)}" role="img" aria-label="${esc(c.alt)}">${layers}${tags}</div>
+    <div class="xv-stage" style="--ratio:${d.ratio.toFixed(4)}" role="img" aria-label="${esc(c.alt)}">${layers}${whole}${tags}</div>
     <div class="xv-bar" aria-hidden="true"><i></i></div>
     <p class="xv-cap"><span>${c.cap}</span> <a href="${c.link[0]}">${c.link[1]}</a> <em>Illustration</em></p>
   </div>

@@ -3,8 +3,8 @@
 import json, numpy as np, os
 from PIL import Image, ImageFilter
 os.makedirs('assets/explode', exist_ok=True)
-for n in ['dimsum', 'bao', 'beer']:
-    im = Image.open(f'assets/flow/x-{n}.jpg').convert('RGB')
+def key(path, n):
+    im = Image.open(path).convert('RGB')
     a = np.asarray(im).astype(float); H, W = a.shape[:2]
     corner = np.concatenate([a[:40, :40].reshape(-1, 3), a[:40, -40:].reshape(-1, 3), a[-40:, :40].reshape(-1, 3), a[-40:, -40:].reshape(-1, 3)])
     bg = np.median(corner, 0)
@@ -20,6 +20,10 @@ for n in ['dimsum', 'bao', 'beer']:
     g2 = np.where(band, np.minimum(g, np.maximum(r, b)), g)                        # despill only near edges
     alpha = np.minimum(alpha, core)
     rgba = np.dstack([r, g2, b, alpha * 255]).clip(0, 255).astype('uint8')
+    return rgba, alpha, H, W
+
+for n in ['dimsum', 'bao', 'beer']:
+    rgba, alpha, H, W = key(f'assets/flow/x-{n}.jpg', n)
     rows = (alpha > .5).sum(1) > 3
     bands, s = [], None
     for y, v in enumerate(rows):
@@ -43,5 +47,14 @@ for n in ['dimsum', 'bao', 'beer']:
     y = cen - tot / 2
     for l in layers:
         l['dy'] = y - l['y']; y += l['h'] - (ovs.pop(0) if ovs else 0)
-    json.dump(dict(ratio=W / H, layers=layers), open(f'src/explode/{n}.json', 'w'))
+    # the finished dish the layers dissolve into: same camera, centred on the stack
+    wr, wa, wH, wW = key(f'assets/flow/x-{n}-whole.jpg', n)
+    ys = np.where((wa > .5).sum(1) > 3)[0]; xs = np.where((wa > .5).sum(0) > 3)[0]
+    y0, y1, x0, x1 = max(0, ys[0] - 3), min(wH, ys[-1] + 4), max(0, xs[0] - 3), min(wW, xs[-1] + 4)
+    Image.fromarray(wr[y0:y1, x0:x1]).save(f'assets/explode/{n}-whole.webp', quality=90, method=6)
+    sh = (tot) * (0.95 if n != 'beer' else 0.9)                     # height as a fraction of the stage
+    sw = sh * (H / W) * ((x1 - x0) / (y1 - y0))
+    cx = sum(l['x'] + l['w'] / 2 for l in layers) / len(layers)
+    whole = dict(x=cx - sw / 2, y=cen - sh / 2, w=sw, h=sh)
+    json.dump(dict(ratio=W / H, layers=layers, whole=whole), open(f'src/explode/{n}.json', 'w'))
     print(n, [(round(l['y'], 2), round(l['h'], 2), round(l['dy'], 2)) for l in layers])

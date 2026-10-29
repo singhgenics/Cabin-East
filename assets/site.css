@@ -629,3 +629,10 @@ html, body { overflow-x: hidden; overflow-x: clip; }
   .xv-tag-l { right: auto; left: -6px; } .xv-tag-r { left: auto; right: -6px; }
   .xv-cap { font-size: 1rem; }
 }
+
+.xv img { transition: none !important; }
+.xv-whole { position: absolute; display: block; height: auto; opacity: 0; pointer-events: none; will-change: transform, opacity; filter: drop-shadow(0 20px 26px rgba(0, 0, 0, .38)); }
+.xv-beer .xv-whole { filter: drop-shadow(0 16px 22px rgba(0, 0, 0, .5)); }
+.xv-calm .xv-whole { display: none; }   /* scroll drives these every frame: no fade-in, no easing lag */
+.xv-on .xv-stage { opacity: 0; transition: opacity 420ms var(--ease); }
+.xv-on .xv-stage.xv-ready { opacity: 1; }
