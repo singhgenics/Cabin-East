@@ -60,4 +60,4 @@ Whole-page smooth scrolling is Lenis (self-hosted `assets/lenis.min.js`, v1.1.20
 
 The pour is act one of the beer exploded scene: `assets/pour/f-000..065.webp` is the `pour` clip (first 5.5 s, 12 fps, 405x720 frames, start frame `assets/flow/pour-start.jpg`) played by scroll position on a canvas (`data-frames` on the beer `data-xv` section, `assets/site.js`); then the pint pulls apart into its parts and comes back together.
 
-The hero is `assets/video/hero-bao.mp4` (a steaming bao, 1280 px wide, seamless loop, `hero-bao` image + `herobao` clip in the Flow scripts). The earlier wok-toss hero clip was dropped; the wok section keeps its still `wok-fire` picture.
+The hero is `assets/video/hero-bao.mp4` (a steaming bao, 1280 px wide, seamless loop, `hero-bao` image + `herobao` clip in the Flow scripts). The wok-toss clip (`assets/video/wok-toss.mp4`) plays in the wok section further down.

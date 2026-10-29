@@ -704,3 +704,4 @@ html.lenis, html.lenis body { height: auto; }
   .hero .main-actions { flex-wrap: nowrap; }
   .hero .main-actions .btn { flex: 1 1 0; padding: 0 .6em; }
 }
+.fire-photo .ph { aspect-ratio: 16 / 9; }
