@@ -59,3 +59,5 @@ Whole-page smooth scrolling is Lenis (self-hosted `assets/lenis.min.js`, v1.1.20
 `src/gen-video.sh [job]` makes the clips (Veo Lite, ~10 credits each, one at a time; prompts `src/flow/v-*.txt`, raw files in `/tmp/vids`). Encode as loops with the same ffmpeg xfade recipe, 800 px wide (480 for portrait), into `assets/video/`: `dimsum-pleat`, `bao-steam`, `beer-trio`, `garden-dusk`, `noodle-cart`, plus `wok-toss` and `cocktail-shake`. Each plays only while on screen.
 
 The pour is act one of the beer exploded scene: `assets/pour/f-000..065.webp` is the `pour` clip (first 5.5 s, 12 fps, 405x720 frames, start frame `assets/flow/pour-start.jpg`) played by scroll position on a canvas (`data-frames` on the beer `data-xv` section, `assets/site.js`); then the pint pulls apart into its parts and comes back together.
+
+The hero is `assets/video/hero-wok.mp4` (the wok toss clip, 1280 px wide, seamless loop); the wok section lower down keeps the still `wok-fire` picture so the clip is not shown twice.

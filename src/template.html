@@ -30,33 +30,25 @@
 
 <main id="top">
 
-<!-- the hoarding -->
-<section class="hoarding" aria-labelledby="hero-title">
-  <div class="board">
-    <figure class="bill bill-photo bill-chicken">
-      <img src="assets/menu/siumai.webp" alt="Chouriço and chicken siu mai in a bamboo steamer" width="640" height="478" fetchpriority="high">
-    </figure>
-
-    <div class="bill bill-main">
-      <img class="main-icon" src="assets/img/logo-icon.webp" alt="" width="220" height="394">
-      <p class="main-word" aria-hidden="true">Cabin East<span>Wok | Steam | Draught</span></p>
-      <h1 id="hero-title">Opening soon <span>in Betalbatim</span></h1>
-      <p class="main-pitch">Hand-folded <strong>dim sum</strong>, soft <strong>bao</strong>, <strong>craft beer</strong> on tap and craft cocktails.</p>
-      <p class="main-actions">
-        <a class="btn btn-ink" href="#menu">See the menu</a>
-        <a class="btn btn-line" href="#find">Find us</a>
-      </p>
-    </div>
-
-    <figure class="bill bill-photo bill-paddle">
-      <img src="assets/menu/kokumsour.webp" alt="Kokum feni sour in a coupe glass with a foam top" width="640" height="478">
-    </figure>
-
-    <aside class="bill bill-happy" aria-label="Happy hour">
-      <p class="happy-big">Happy hour <span>12–6</span></p>
-      <p class="happy-small">Taps ₹179 · Kings ₹99</p>
-    </aside>
+<!-- HERO: the wok toss, full width -->
+<section class="hero" aria-labelledby="hero-title">
+  <video class="hero-video" data-loop autoplay muted loop playsinline preload="auto" poster="assets/img/wok-fire.webp" width="1280" height="720" aria-hidden="true" tabindex="-1"><source src="assets/video/hero-wok.mp4" type="video/mp4"></video>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="hero-stamp">Opening soon in Betalbatim</p>
+    <img class="hero-icon" src="assets/img/logo-icon.webp" alt="" width="220" height="394">
+    <h1 id="hero-title" class="hero-title">Cabin East<span>Wok | Steam | Draught</span></h1>
+    <p class="hero-pitch">Hand-folded <strong>dim sum</strong>, soft <strong>bao</strong>, <strong>craft beer</strong> on tap and craft cocktails.</p>
+    <p class="main-actions">
+      <a class="btn btn-ink" href="#menu">See the menu</a>
+      <a class="btn btn-line" href="#find">Find us</a>
+    </p>
   </div>
+  <aside class="hero-happy" aria-label="Happy hour">
+    <p class="happy-big">Happy hour <span>12–6</span></p>
+    <p class="happy-small">Taps ₹179 · Kings ₹99</p>
+  </aside>
+  <p class="hero-note">Illustration</p>
 </section>
 
 <!-- MOAT -->
@@ -322,7 +314,7 @@
     </ol>
   </div>
   <div class="wok-fire">
-    <figure class="fire-photo" data-reveal><div class="ph"><video class="fire-video" data-loop muted loop playsinline preload="none" poster="assets/img/wok-fire.webp" width="960" height="540" aria-label="A chef tossing chilli chicken in a black wok over a roaring gas flame (illustration)"><source src="assets/video/wok-toss.mp4" type="video/mp4"></video></div><figcaption>Tossed to order over full flame (illustration)</figcaption></figure>
+    <figure class="fire-photo" data-reveal><div class="ph"><img src="assets/img/wok-fire.webp" alt="Chilli chicken tossed in a black wok over a roaring gas flame" width="1200" height="896" loading="lazy"></div></figure>
     <div class="fire-copy">
       <p class="lede">Full flame, double-fried, a lot of chilli. Pick paneer, chicken, pork or prawns and we toss it to order, so the sauce catches and smokes.</p>
       <ul class="lines" data-stagger>

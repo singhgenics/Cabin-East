@@ -65,6 +65,8 @@ if (story && chapters.length) {
 }
 
 
+// the hero clip autoplays, but never under reduced motion or ?still (the poster stays)
+document.querySelectorAll('video[autoplay]').forEach(v => { if (still || matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); } });
 // looping clips play only while on screen (and never under reduced motion or ?still: the poster stays)
 const loops = document.querySelectorAll('video[data-loop]');
 if (loops.length && 'IntersectionObserver' in window && !still && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
