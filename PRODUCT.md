@@ -12,12 +12,12 @@ Static HTML/CSS/JS, no build step at runtime. Own public repo `singhgenics/Cabin
 
 ## Users
 
-- Holidaymakers and residents in South Goa (Betalbatim, Colva, Majorda, Varca) deciding where to eat and drink tonight, usually on a phone, often from the beach or a villa.
+- Holidaymakers and residents in South Goa (Cavelossim, Colva, Majorda, Varca) deciding where to eat and drink tonight, usually on a phone, often from the beach or a villa.
 - Friends of the owners and early followers watching the place come together before it opens.
 
 ## Product Purpose
 
-The public website for Cabin East, a small Pan-Asian pub that is **opening soon** in Betalbatim, South Goa. It tells people what the place is, shows the food and the drinks, and where to find it. Success: a visitor wants to come on opening week and remembers the name.
+The public website for Cabin East, a small Pan-Asian pub that is **opening soon** in Cavelossim, South Goa. It tells people what the place is, shows the food and the drinks, and where to find it. Success: a visitor wants to come on opening week and remembers the name.
 
 ## Positioning
 
@@ -29,7 +29,7 @@ Indo-Chinese from the wok, dim sum and bao from the steamer, and craft beer from
 
 - 28 covers: 18 inside, 10 in the beer garden.
 - Hours (planned): 12 noon to 11 pm, closed Monday. Happy hour 12 noon to 6 pm (owner, 2026-10-20; menus still say 4-8 until updated). Lunch "Bowl game" noon to 4 pm.
-- Address: Shop 4, Tulip Residency, Gandaulim, Betalbatim, South Goa.
+- Location: Cavelossim, South Goa. The street address is deliberately left off the site for now (owner, 2026-10-29).
 
 ## Capabilities and Constraints
 

@@ -110,7 +110,7 @@ webp('assets/plates/poster-paper.png', 'paper.webp', ['-q', '70', '-resize', '51
 webp('assets/plates/nav-logo.png', 'logo-line.webp', ['-q', '90', '-resize', '0', '240']);
 webp('assets/plates/poster-logo.png', 'logo-icon.webp', ['-q', '92', '-resize', '440', '0']);
 webp('assets/plates/nav-rail-strip.png', 'nav-rail.webp', ['-q', '72']);
-for (const f of ['wok-fire', 'steamer-stack', 'tap-pour', 'garden-dusk', 'beach', 'calcutta-lane', 'cabin-booths', 'noodle-cart', 'dimsum-hands', 'bao-lift', 'cocktail-bar', 'beer-trio']) webp(`assets/flow/${f}.jpg`, `${f}.webp`, ['-q', '78']);
+for (const f of ['wok-fire', 'steamer-stack', 'tap-pour', 'garden-dusk', 'beach', 'calcutta-lane', 'cabin-booths', 'noodle-cart', 'garden-decor', 'dimsum-hands', 'bao-lift', 'cocktail-bar', 'beer-trio']) webp(`assets/flow/${f}.jpg`, `${f}.webp`, ['-q', '78']);
 
 const raw = loadMenu();
 const food = clean(raw.food), drinks = clean(raw.drinks);

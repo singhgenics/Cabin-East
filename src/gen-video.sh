@@ -16,6 +16,7 @@ garden|assets/flow/garden-dusk.jpg|16:9
 cart|assets/flow/noodle-cart.jpg|16:9
 herobao|assets/flow/hero-bao.jpg|16:9
 pourwide|assets/flow/pour-wide.jpg|16:9
+gardendecor|assets/flow/garden-decor.jpg|16:9
 "
 want=" $* "
 echo "$JOBS" | while IFS='|' read -r job frame asp; do
