@@ -24,6 +24,9 @@ dimsum|assets/flow/dimsum-hands.jpg|3:4|
 bao|assets/flow/bao-lift.jpg|4:3|
 cocktails|assets/flow/cocktail-bar.jpg|4:3|
 beers|assets/flow/beer-trio.jpg|4:3|
+x-dimsum|assets/flow/x-dimsum.jpg|3:4|
+x-bao|assets/flow/x-bao.jpg|3:4|
+x-beer|assets/flow/x-beer.jpg|3:4|
 "
 want=" $* "
 echo "$JOBS" | while IFS='|' read -r job out asp refs; do

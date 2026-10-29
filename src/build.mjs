@@ -136,6 +136,33 @@ const count = k => k === 'taps' ? all.filter(x => fields(x.it).art && fields(x.i
 let html = fs.readFileSync(path.join(ROOT, 'src/template.html'), 'utf8');
 html = html.replace('<!--MENU-->', menuHtml);
 html = html.replace(/\{\{([^}|]+)\|(name|sub|what|story|price|img|marks|tagmark)\}\}/g, (_, n, f) => { const v = pick(n.trim())[f]; return RAW.has(f) ? v : esc(v); });
+const XV = {
+  dimsum: { word: 'Dim sum', kicker: 'How a basket is built', alt: 'Illustration of a crystal prawn dumpling basket pulled apart into its layers',
+    tags: ['Bamboo lid', 'Prawn and chive dumplings', 'Parchment liner', 'Bamboo steamer', 'Ceramic plate'],
+    cap: 'Hand-folded, steamed to order, four to a basket.', link: ['#dimsum', 'See the dim sum'] },
+  bao: { word: 'Bao', kicker: 'How a bao is built', alt: 'Illustration of a pork belly bao pulled apart into its layers',
+    tags: ['Steamed bun', 'Coriander and peanut crumb', 'Braised pork belly, hoisin', 'Cucumber', 'Bun base'],
+    cap: 'Two to a plate, finished to order.', link: ['#bao', 'See the bao'] },
+  beer: { word: 'Beer', kicker: 'How a pint is built', alt: 'Illustration of a pint of craft lager pulled apart into its parts',
+    tags: ['The tap', 'Thick foam', 'Craft lager', 'Hops and malt', 'Coaster'],
+    cap: 'Three craft taps from small breweries up the coast.', link: ['#beer', 'See the taps'] },
+};
+const pct = v => (v * 100).toFixed(3) + '%';
+function explode(name) {
+  const d = JSON.parse(fs.readFileSync(path.join(ROOT, `src/explode/${name}.json`), 'utf8')), c = XV[name];
+  const layers = d.layers.map((l, i) => `<img class="xv-l" src="assets/explode/${name}-${i}.webp" alt="" data-dy="${l.dy.toFixed(4)}" data-i="${i}" style="left:${pct(l.x)};top:${pct(l.y)};width:${pct(l.w)}" width="${Math.round(l.w * 896)}" height="${Math.round(l.h * 1200)}" loading="lazy">`).join('');
+  const tags = d.layers.map((l, i) => `<span class="xv-tag xv-tag-${i % 2 ? 'r' : 'l'}" data-dy="${l.dy.toFixed(4)}" style="top:${pct(l.y + l.h / 2)}">${c.tags[i]}</span>`).join('');
+  return `<section class="xv xv-${name}" data-xv aria-label="${esc(c.kicker)}">
+  <div class="xv-stick">
+    <p class="xv-kicker">${c.kicker}</p>
+    <p class="xv-word" aria-hidden="true">${c.word}</p>
+    <div class="xv-stage" style="--ratio:${d.ratio.toFixed(4)}" role="img" aria-label="${esc(c.alt)}">${layers}${tags}</div>
+    <div class="xv-bar" aria-hidden="true"><i></i></div>
+    <p class="xv-cap"><span>${c.cap}</span> <a href="${c.link[0]}">${c.link[1]}</a> <em>Illustration</em></p>
+  </div>
+</section>`;
+}
+html = html.replace(/\{\{#explode:(dimsum|bao|beer)\}\}/g, (_, k) => explode(k));
 html = html.replace(/\{\{#(dimsum|bao|cocktails|taps)\}\}/g, (_, k) => String(count(k)));
 fs.writeFileSync(path.join(ROOT, 'index.html'), html);
 console.log('index.html written:', food.length, 'food sections,', drinks.length, 'drinks sections');

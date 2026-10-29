@@ -63,4 +63,49 @@ if (story && chapters.length) {
     chapters.forEach(c => so.observe(c));
   }
 }
+
+// exploded views: a tall section pins the stage while scroll pulls the layers together into one stack
+const xvs = [...document.querySelectorAll('[data-xv]')];
+if (xvs.length) {
+  const calm = still || matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  const smooth = t => t * t * (3 - 2 * t);
+  const items = xvs.map(el => ({
+    el, stick: el.querySelector('.xv-stick'), stage: el.querySelector('.xv-stage'), cap: el.querySelector('.xv-cap'),
+    word: el.querySelector('.xv-word'), kicker: el.querySelector('.xv-kicker'), k0: el.querySelector('.xv-kicker').textContent, k1: 'Ready to eat', bar: el.querySelector('.xv-bar i'),
+    layers: [...el.querySelectorAll('.xv-l')], tags: [...el.querySelectorAll('.xv-tag')], p: -1,
+  }));
+  if (calm) items.forEach(it => it.el.classList.add('xv-calm'));
+  else {
+    const draw = it => {
+      const r = it.el.getBoundingClientRect(), run = r.height - it.stick.offsetHeight;
+      const t = clamp(-r.top / Math.max(1, run), 0, 1);
+      const p = clamp((t - .12) / .6, 0, 1);                       // hold apart, pull together, hold together
+      if (Math.abs(p - it.p) < .0004) return;
+      it.p = p;
+      const h = it.stage.offsetHeight, n = it.layers.length;
+      it.layers.forEach((l, i) => {                                   // outer layers leave first, so the stack folds in a wave
+        const q = smooth(clamp((p - i * .045) / .82, 0, 1)), bump = Math.sin(q * Math.PI);
+        l.style.transform = `translateY(${(+l.dataset.dy * h * q).toFixed(1)}px) rotate(${((i % 2 ? 1 : -1) * 3.2 * bump).toFixed(2)}deg) scale(${(1 + .05 * bump).toFixed(3)})`;
+      });
+      it.tags.forEach((g, i) => {
+        const q = smooth(clamp((p - i * .045) / .82, 0, 1));
+        g.style.transform = `translateY(calc(-50% + ${(+g.dataset.dy * h * q).toFixed(1)}px))`;
+        g.style.opacity = (1 - smooth(clamp(p / .3, 0, 1))).toFixed(3);
+      });
+      const done = smooth(clamp((p - .86) / .14, 0, 1)), e = smooth(p);
+      it.cap.style.opacity = done.toFixed(3);
+      it.cap.style.transform = `translateY(${((1 - done) * 16).toFixed(1)}px)`;
+      it.word.style.transform = `translateY(${((.5 - e) * 60).toFixed(1)}px) scale(${(.92 + .16 * e).toFixed(3)})`;
+      it.stage.style.transform = `scale(${(.9 + .16 * e).toFixed(3)})`;  // slow push-in as it comes together
+      it.bar.style.transform = `scaleX(${t.toFixed(3)})`;
+      it.kicker.textContent = p < .08 ? it.k0 : p > .92 ? it.k1 : 'Coming together';
+    };
+    let queued = false;
+    const tick = () => { queued = false; items.forEach(draw); };
+    const kick = () => { if (!queued) { queued = true; requestAnimationFrame(tick); } };
+    addEventListener('scroll', kick, { passive: true }); addEventListener('resize', kick); tick();
+    document.documentElement.classList.add('xv-on');
+  }
+}
 document.documentElement.classList.add('motion');
