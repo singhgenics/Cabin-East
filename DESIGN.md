@@ -138,6 +138,9 @@ The built page departs from the approved comp in three recorded ways. Real menu 
 
 The owner moved the site to the garden decor palette (Garden/Decor page). Bottle green `#1F3D2E` replaces Cabin Red as the lead colour (headings, hoarding plywood recoloured green, bao scene, `theme-color`); Chocolate tile `#4A2A1E` takes the Draught band and the beer pour scene and the soft ink; Goa blue `#2443A6` takes the story route card; Old brick `#A9533A` takes the dim sum scene and the alternating words and counts of the moat headline; Gilt and brass `#C49A3C` replaces amber; Burgundy `#6A1622` takes the happy-hour stickers and the Opening soon disc; Cognac `#A2582A` takes link and hover accents on light sections; Bougainvillea `#D81B7A` takes the small "Goa" tags. Ink is now a green-black `#17221C`; cream and paper are unchanged. Chilli icons stay red `#B5321C`. The logo artwork is still the original red and amber (open question: a green or brass version). The old token names (`--red`, `--amber`, `--jade`) now point at the new colours, so the sections below still read by role: where they say red, amber or jade, read bottle green, brass and Goa blue; the block at the end of `assets/site.css` holds the overrides. The recoloured plywood textures are `assets/img/hoarding-wood-green.webp` and `hoarding-wood-brick.webp` (same grain, duotoned).
 
+### Calmer hoarding (2026-10-29)
+The plywood is toned down: the deals and Find us boards are flat bottle green with a faint grain (84% green over the texture) between two thin brass rules, the dim sum scene is flat old brick with the same faint grain, and the bao and beer scenes get a thin brass line on top. A Gloock and Figtree type change was previewed the same day and declined (the site keeps Alfa Slab One, IBM Plex Sans and Mono).
+
 ## Colors
 
 Five pinned brand colours from the Cabin Red kit, plus a small set of supporting tones that exist only to sit on those five.

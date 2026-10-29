@@ -738,3 +738,8 @@ html.lenis, html.lenis body { height: auto; }
 /* the moat headline alternates bottle green and old brick; the counts take brick too */
 .moat-title { color: var(--bottle); }
 .moat-title .r, .mcell .num { color: var(--brick); }
+
+/* calmer hoarding (2026-10-29): flat bottle green with a faint grain and a thin brass rule instead of heavy plywood */
+.hoarding { background: linear-gradient(rgba(31, 61, 46, .84), rgba(31, 61, 46, .84)), url("img/hoarding-wood-green.webp") center / auto 100% repeat-x, var(--bottle); border-top: 3px solid var(--brass); border-bottom: 3px solid var(--brass); }
+.xv-dimsum { background: radial-gradient(ellipse at 50% 46%, rgba(0, 0, 0, 0) 20%, rgba(32, 12, 6, .6) 100%), linear-gradient(rgba(169, 83, 58, .88), rgba(169, 83, 58, .88)), url("img/hoarding-wood-brick.webp") center / cover, var(--brick); }
+.xv-bao, .xv-beer { border-top: 3px solid var(--brass); }
