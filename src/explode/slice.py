@@ -22,7 +22,7 @@ def key(path, n):
     rgba = np.dstack([r, g2, b, alpha * 255]).clip(0, 255).astype('uint8')
     return rgba, alpha, H, W
 
-for n in ['dimsum', 'bao', 'beer']:
+for n in ['dimsum', 'bao']:
     rgba, alpha, H, W = key(f'assets/flow/x-{n}.jpg', n)
     rows = (alpha > .5).sum(1) > 3
     bands, s = [], None

@@ -58,6 +58,6 @@ Whole-page smooth scrolling is Lenis (self-hosted `assets/lenis.min.js`, v1.1.20
 
 `src/gen-video.sh [job]` makes the clips (Veo Lite, ~10 credits each, one at a time; prompts `src/flow/v-*.txt`, raw files in `/tmp/vids`). Encode as loops with the same ffmpeg xfade recipe, 800 px wide (480 for portrait), into `assets/video/`: `dimsum-pleat`, `bao-steam`, `beer-trio`, `garden-dusk`, `noodle-cart`, plus `wok-toss` and `cocktail-shake`. Each plays only while on screen.
 
-The pour is act one of the beer exploded scene: `assets/pour/f-000..059.webp` are 60 frames (10 fps, 1024x576, colour-graded) of the `pourwide` clip (start frame `assets/flow/pour-wide.jpg`, prompts `pour-wide.txt` and `v-pourwide.txt`) painted on a full-bleed canvas by scroll position (`data-frames` on the beer `data-xv` section, `assets/site.js`); then the pint pulls apart into its parts and comes back together.
+The beer scene is a scroll-scrubbed pour: `assets/pour/f-000..059.webp` are 60 frames (10 fps, 1024x576, colour-graded) of the `pourwide` clip (start frame `assets/flow/pour-wide.jpg`, prompts `pour-wide.txt` and `v-pourwide.txt`) painted on a full-bleed canvas by scroll position (`data-frames` on the beer `data-xv` section, `assets/site.js`); the beer scene is the pour only (the exploded beer view was removed).
 
 The hero is `assets/video/hero-bao.mp4` (a steaming bao, 1280 px wide, seamless loop, `hero-bao` image + `herobao` clip in the Flow scripts). The wok-toss clip (`assets/video/wok-toss.mp4`) plays in the wok section further down.

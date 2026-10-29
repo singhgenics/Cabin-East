@@ -103,7 +103,7 @@ if (xvs.length) {
   const out = t => 1 - Math.pow(1 - t, 3);
   const items = xvs.map(el => ({
     el, stick: el.querySelector('.xv-stick'), stage: el.querySelector('.xv-stage'), cap: el.querySelector('.xv-cap'),
-    word: el.querySelector('.xv-word'), kicker: el.querySelector('.xv-kicker'), k0: el.querySelector('.xv-kicker').textContent, k1: el.dataset.k1 || 'Ready to eat', pf: +el.dataset.frames || 0, cv: el.querySelector('.xv-pour-cv'), frames: [], shown: -1, pcur: -1, ptarget: 0, started: false, rv: 1, pp: 0,
+    word: el.querySelector('.xv-word'), kicker: el.querySelector('.xv-kicker'), k0: el.querySelector('.xv-kicker').textContent, k1: el.dataset.k1 || 'Ready to eat', pf: +el.dataset.frames || 0, only: el.hasAttribute('data-only'), cv: el.querySelector('.xv-pour-cv'), frames: [], shown: -1, pcur: -1, ptarget: 0, started: false, rv: 1, pp: 0,
     bar: el.querySelector('.xv-bar i'), whole: el.querySelector('.xv-whole'),
     layers: [...el.querySelectorAll('.xv-l')], tags: [...el.querySelectorAll('.xv-tag')],
     target: 0, cur: -1, h: 0, label: '',
@@ -120,7 +120,9 @@ if (xvs.length) {
     const aim = it => {                                              // scroll position -> target progress (0 apart, 1 together)
       const r = it.el.getBoundingClientRect(), run = r.height - it.stick.offsetHeight;
       it.t = clamp(-r.top / Math.max(1, run), 0, 1);
-      if (it.pf) {                                                   // act 1: the glass fills under the tap; act 2: it pulls apart and comes together
+      if (it.pf && it.only) {                                        // the pour is the whole scene: scroll plays it, then the caption arrives
+        it.ptarget = clamp((it.t - .04) / .8, 0, 1) * (it.pf - 1); it.target = 0; it.rv = 0;
+      } else if (it.pf) {                                            // act 1: the glass fills under the tap; act 2: it pulls apart and comes together
         it.ptarget = clamp((it.t - .03) / .34, 0, 1) * (it.pf - 1);
         it.target = clamp((it.t - .5) / .4, 0, 1);
         it.rv = smooth(clamp((it.t - .38) / .1, 0, 1));
@@ -151,7 +153,7 @@ if (xvs.length) {
         g.style.transform = `translate3d(0, calc(-50% + ${(+g.dataset.dy * h * q).toFixed(2)}px), 0)`;
         g.style.opacity = ((1 - smooth(clamp(p / .28, 0, 1))) * it.rv).toFixed(3);
       });
-      const done = out(clamp((p - .9) / .1, 0, 1)), e = smooth(p);
+      const done = it.only ? out(clamp((it.pcur / (it.pf - 1) - .9) / .1, 0, 1)) : out(clamp((p - .9) / .1, 0, 1)), e = smooth(p);
       it.cap.style.opacity = done.toFixed(3);
       it.cap.style.transform = `translate3d(0, ${((1 - done) * 18).toFixed(1)}px, 0)`;
       it.word.style.transform = `translate3d(0, ${((.5 - e) * 70).toFixed(1)}px, 0) scale(${(.92 + .16 * e).toFixed(4)})`;
@@ -164,7 +166,8 @@ if (xvs.length) {
       it.stage.style.transform = `scale(${sc.toFixed(4)})`;
       it.bar.style.transform = `scaleX(${it.t.toFixed(4)})`;
       let label = p < .06 ? it.k0 : p > .94 ? it.k1 : 'Coming together';
-      if (it.pf && p < .06) label = it.rv < .2 ? (it.pp < .03 ? it.k0 : it.pp > .97 ? 'Poured' : 'Pouring') : 'What’s in a pint';
+      if (it.only) label = it.pp < .03 ? it.k0 : it.pp > .97 ? 'Poured' : 'Pouring';
+      else if (it.pf && p < .06) label = it.rv < .2 ? (it.pp < .03 ? it.k0 : it.pp > .97 ? 'Poured' : 'Pouring') : 'What’s in a pint';
       if (label !== it.label) { it.label = label; it.kicker.textContent = label; }
     };
     let last = 0, running = false;

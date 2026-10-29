@@ -143,17 +143,17 @@ const XV = {
   bao: { word: 'Bao', kicker: 'How a bao is built', alt: 'Illustration of a pork belly bao pulled apart into its layers',
     tags: ['Steamed bun', 'Coriander and peanut crumb', 'Braised pork belly, hoisin', 'Cucumber', 'Bun base'],
     cap: 'Two to a plate, finished to order.', link: ['#bao', 'See the bao'] },
-  beer: { word: 'Beer', kicker: 'How a pint is poured', alt: 'Illustration of a pint poured from a brass tap, then pulled apart into its parts', frames: fs.readdirSync(path.join(ROOT, 'assets/pour')).filter(f => /^f-\d+\.webp$/.test(f)).length, k1: 'Ready to drink',
+  beer: { word: 'Beer', kicker: 'How a pint is poured', alt: 'Illustration of a pint of craft lager being poured from a brass tap', frames: fs.readdirSync(path.join(ROOT, 'assets/pour')).filter(f => /^f-\d+\.webp$/.test(f)).length, k1: 'Ready to drink', only: true,
     tags: ['The tap', 'Thick foam', 'Craft lager', 'Hops and malt', 'Coaster'],
     cap: 'Three craft taps from small breweries up the coast.', link: ['#beer', 'See the taps'] },
 };
 const pct = v => (v * 100).toFixed(3) + '%';
 function explode(name) {
-  const d = JSON.parse(fs.readFileSync(path.join(ROOT, `src/explode/${name}.json`), 'utf8')), c = XV[name];
-  const layers = d.layers.map((l, i) => `<img class="xv-l" src="assets/explode/${name}-${i}.webp" alt="" data-dy="${l.dy.toFixed(4)}" data-i="${i}" style="z-index:${d.layers.length - i};left:${pct(l.x)};top:${pct(l.y)};width:${pct(l.w)}" width="${Math.round(l.w * 896)}" height="${Math.round(l.h * 1200)}" decoding="async">`).join('');
+  const c = XV[name], d = c.only ? { ratio: 0.75, layers: [], whole: null } : JSON.parse(fs.readFileSync(path.join(ROOT, `src/explode/${name}.json`), 'utf8'));
+  const layers = c.only ? '' : d.layers.map((l, i) => `<img class="xv-l" src="assets/explode/${name}-${i}.webp" alt="" data-dy="${l.dy.toFixed(4)}" data-i="${i}" style="z-index:${d.layers.length - i};left:${pct(l.x)};top:${pct(l.y)};width:${pct(l.w)}" width="${Math.round(l.w * 896)}" height="${Math.round(l.h * 1200)}" decoding="async">`).join('');
   const tags = '';   // the label plaques were removed at the owner's request (2026-10-29)
-  const w = d.whole, whole = `<img class="xv-whole" src="assets/explode/${name}-whole.webp" alt="" style="left:${pct(w.x)};top:${pct(w.y)};width:${pct(w.w)}" width="600" height="800" decoding="async">`;
-  return `<section class="xv xv-${name}" data-xv${c.frames ? ` data-frames="${c.frames}" data-k1="${c.k1}"` : ''} aria-label="${esc(c.kicker)}">
+  const w = d.whole, whole = c.only ? '' : `<img class="xv-whole" src="assets/explode/${name}-whole.webp" alt="" style="left:${pct(w.x)};top:${pct(w.y)};width:${pct(w.w)}" width="600" height="800" decoding="async">`;
+  return `<section class="xv xv-${name}" data-xv${c.frames ? ` data-frames="${c.frames}" data-k1="${c.k1}"${c.only ? ' data-only' : ''}` : ''} aria-label="${esc(c.kicker)}">
   <div class="xv-stick">
     ${c.frames ? '<canvas class="xv-pour-cv" width="1024" height="576" aria-hidden="true"></canvas>' : ''}
     <p class="xv-kicker">${c.kicker}</p>

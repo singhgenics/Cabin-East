@@ -705,3 +705,5 @@ html.lenis, html.lenis body { height: auto; }
   .hero .main-actions .btn { flex: 1 1 0; padding: 0 .6em; }
 }
 .fire-photo .ph { aspect-ratio: 16 / 9; }
+.xv-on .xv-beer { height: 260vh; }
+@media (max-width: 820px) { .xv-on .xv-beer { height: 240vh; } }
