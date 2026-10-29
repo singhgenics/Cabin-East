@@ -75,55 +75,6 @@ if (loops.length && 'IntersectionObserver' in window && !still && !matchMedia('(
   loops.forEach(v => vo.observe(v));
 }
 
-// the pour: scroll scrubs a frame sequence (a glass filling under a tap); frames are preloaded when the section nears
-const pours = [...document.querySelectorAll('[data-pour]')];
-if (pours.length && !still && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  pours.forEach(el => {
-    const n = +el.dataset.frames, stick = el.querySelector('.xv-stick'), stage = el.querySelector('.pour-stage'), cv = el.querySelector('canvas');
-    const cap = el.querySelector('.xv-cap'), word = el.querySelector('.xv-word'), bar = el.querySelector('.xv-bar i'), kick = el.querySelector('.xv-kicker'), k0 = kick.textContent;
-    const ctx = cv.getContext('2d'), frames = new Array(n); let loaded = 0, started = false, target = 0, cur = -1, shown = -1, running = false, last = 0, live = false, t = 0;
-    const clamp = (v, a, b) => Math.min(b, Math.max(a, v)), smooth = v => v * v * (3 - 2 * v);
-    const src = i => `assets/pour/f-${String(i).padStart(3, '0')}.webp`;
-    const paint = i => {                                              // draw the nearest loaded frame at or below i
-      let k = Math.round(i); while (k > 0 && !frames[k]) k--;
-      if (frames[k] && k !== shown) { ctx.drawImage(frames[k], 0, 0, cv.width, cv.height); shown = k; }
-    };
-    const load = () => {
-      if (started) return; started = true;
-      const order = [...Array(n).keys()];                              // every 6th first so scrubbing works before all frames arrive
-      order.sort((a, b) => (a % 6 ? 1 : 0) - (b % 6 ? 1 : 0) || a - b);
-      order.forEach(i => { const im = new Image(); im.decoding = 'async'; im.onload = () => { frames[i] = im; if (++loaded === 1 || i === 0) { paint(cur < 0 ? 0 : cur); el.classList.add('pour-on'); } }; im.src = src(i); });
-    };
-    const aim = () => {
-      const r = el.getBoundingClientRect(), run = r.height - stick.offsetHeight;
-      t = clamp(-r.top / Math.max(1, run), 0, 1); target = clamp((t - .08) / .74, 0, 1) * (n - 1); live = r.bottom > -300 && r.top < innerHeight + 300;
-    };
-    const draw = () => {
-      const p = cur / (n - 1), e = smooth(clamp(p, 0, 1));
-      paint(cur);
-      stage.style.transform = `scale(${(.92 + .08 * e).toFixed(4)})`;
-      word.style.transform = `translate3d(0, ${((.5 - e) * 50).toFixed(1)}px, 0) scale(${(.94 + .1 * e).toFixed(4)})`;
-      const done = clamp((p - .92) / .08, 0, 1); cap.style.opacity = done.toFixed(3); cap.style.transform = `translate3d(0, ${((1 - done) * 16).toFixed(1)}px, 0)`;
-      bar.style.transform = `scaleX(${t.toFixed(4)})`;
-      const label = p < .04 ? k0 : p > .97 ? 'Poured' : 'Pouring'; if (kick.textContent !== label) kick.textContent = label;
-    };
-    const frame = now => {
-      const dt = Math.min(64, now - (last || now)); last = now;
-      if (live) {
-        if (cur < 0) cur = target;
-        const d = target - cur;
-        if (Math.abs(d) > .02) { cur += d * (1 - Math.exp(-dt / 70)); draw(); requestAnimationFrame(frame); return; }
-        if (cur !== target) { cur = target; draw(); }
-      }
-      running = false; last = 0;
-    };
-    const kickLoop = () => { aim(); if (live) load(); if (!running) { running = true; requestAnimationFrame(frame); } };
-    el.querySelector('.xv-cap').style.opacity = 0;
-    new IntersectionObserver(es => { if (es[0].isIntersecting) load(); }, { rootMargin: '1800px 0px' }).observe(el);
-    addEventListener('scroll', kickLoop, { passive: true }); addEventListener('resize', kickLoop); kickLoop();
-  });
-}
-
 // whole-page smooth scrolling (Lenis, self-hosted): wheel and trackpad glide, touch stays native, anchors ease to their target
 let lenis = null;
 if (!still && window.Lenis && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -150,7 +101,7 @@ if (xvs.length) {
   const out = t => 1 - Math.pow(1 - t, 3);
   const items = xvs.map(el => ({
     el, stick: el.querySelector('.xv-stick'), stage: el.querySelector('.xv-stage'), cap: el.querySelector('.xv-cap'),
-    word: el.querySelector('.xv-word'), kicker: el.querySelector('.xv-kicker'), k0: el.querySelector('.xv-kicker').textContent, k1: 'Ready to eat',
+    word: el.querySelector('.xv-word'), kicker: el.querySelector('.xv-kicker'), k0: el.querySelector('.xv-kicker').textContent, k1: el.dataset.k1 || 'Ready to eat', pf: +el.dataset.frames || 0, cv: el.querySelector('.xv-pour-cv'), frames: [], shown: -1, pcur: -1, ptarget: 0, started: false, rv: 1, pp: 0,
     bar: el.querySelector('.xv-bar i'), whole: el.querySelector('.xv-whole'),
     layers: [...el.querySelectorAll('.xv-l')], tags: [...el.querySelectorAll('.xv-tag')],
     target: 0, cur: -1, h: 0, label: '',
@@ -167,9 +118,23 @@ if (xvs.length) {
     const aim = it => {                                              // scroll position -> target progress (0 apart, 1 together)
       const r = it.el.getBoundingClientRect(), run = r.height - it.stick.offsetHeight;
       it.t = clamp(-r.top / Math.max(1, run), 0, 1);
-      it.target = clamp((it.t - .1) / .62, 0, 1);
+      if (it.pf) {                                                   // act 1: the glass fills under the tap; act 2: it pulls apart and comes together
+        it.ptarget = clamp((it.t - .03) / .34, 0, 1) * (it.pf - 1);
+        it.target = clamp((it.t - .5) / .4, 0, 1);
+        it.rv = smooth(clamp((it.t - .38) / .1, 0, 1));
+      } else it.target = clamp((it.t - .1) / .62, 0, 1);
       it.live = r.bottom > -200 && r.top < innerHeight + 200;
     };
+    const paintPour = it => {                                         // draw the nearest loaded frame at or below the current one
+      let k = Math.round(it.pcur); while (k > 0 && !it.frames[k]) k--;
+      if (it.frames[k] && k !== it.shown) { it.cv.getContext('2d').drawImage(it.frames[k], 0, 0, it.cv.width, it.cv.height); it.shown = k; }
+    };
+    const loadPour = it => {
+      if (it.started) return; it.started = true;
+      const order = [...Array(it.pf).keys()].sort((a, b) => (a % 6 ? 1 : 0) - (b % 6 ? 1 : 0) || a - b);   // every 6th frame first
+      order.forEach(i => { const im = new Image(); im.decoding = 'async'; im.onload = () => { it.frames[i] = im; it.shown = -1; paintPour(it); }; im.src = `assets/pour/f-${String(i).padStart(3, '0')}.webp`; });
+    };
+    items.filter(it => it.pf).forEach(it => new IntersectionObserver(es => { if (es[0].isIntersecting) loadPour(it); }, { rootMargin: '1800px 0px' }).observe(it.el));
     const draw = it => {
       const p = it.cur, h = it.h;
       it.layers.forEach((l, i) => {                                   // outer layers leave first, so the stack folds in a wave
@@ -177,20 +142,27 @@ if (xvs.length) {
         l.style.transform = `translate3d(0, ${(+l.dataset.dy * h * q).toFixed(2)}px, 0) rotate(${((i % 2 ? 1 : -1) * 3 * bump).toFixed(2)}deg) scale(${(1 + .045 * bump).toFixed(4)})`;
       });
       const fuse = smooth(clamp((p - .86) / .12, 0, 1));              // the layers dissolve into the finished dish
-      it.layers.forEach(l => l.style.opacity = (1 - fuse).toFixed(3));
-      if (it.whole) { it.whole.style.opacity = fuse.toFixed(3); it.whole.style.transform = `scale(${(.97 + .03 * fuse).toFixed(4)})`; }
+      it.layers.forEach(l => l.style.opacity = ((1 - fuse) * it.rv).toFixed(3));
+      if (it.whole) { it.whole.style.opacity = (fuse * it.rv).toFixed(3); it.whole.style.transform = `scale(${(.97 + .03 * fuse).toFixed(4)})`; }
       it.tags.forEach((g, i) => {
         const q = smooth(clamp((p - i * .04) / .84, 0, 1));
         g.style.transform = `translate3d(0, calc(-50% + ${(+g.dataset.dy * h * q).toFixed(2)}px), 0)`;
-        g.style.opacity = (1 - smooth(clamp(p / .28, 0, 1))).toFixed(3);
+        g.style.opacity = ((1 - smooth(clamp(p / .28, 0, 1))) * it.rv).toFixed(3);
       });
       const done = out(clamp((p - .9) / .1, 0, 1)), e = smooth(p);
       it.cap.style.opacity = done.toFixed(3);
       it.cap.style.transform = `translate3d(0, ${((1 - done) * 18).toFixed(1)}px, 0)`;
       it.word.style.transform = `translate3d(0, ${((.5 - e) * 70).toFixed(1)}px, 0) scale(${(.92 + .16 * e).toFixed(4)})`;
-      it.stage.style.transform = `scale(${(.9 + .17 * e).toFixed(4)})`;  // slow push-in as it comes together
+      let sc = .9 + .17 * e;                                           // slow push-in as it comes together
+      if (it.pf) {
+        it.pp = clamp(it.pcur / (it.pf - 1), 0, 1); paintPour(it);
+        it.cv.style.opacity = (1 - it.rv).toFixed(3);
+        sc = (1 - it.rv) * (.94 + .06 * it.pp) + it.rv * sc;
+      }
+      it.stage.style.transform = `scale(${sc.toFixed(4)})`;
       it.bar.style.transform = `scaleX(${it.t.toFixed(4)})`;
-      const label = p < .06 ? it.k0 : p > .94 ? it.k1 : 'Coming together';
+      let label = p < .06 ? it.k0 : p > .94 ? it.k1 : 'Coming together';
+      if (it.pf && p < .06) label = it.rv < .2 ? (it.pp < .03 ? it.k0 : it.pp > .97 ? 'Poured' : 'Pouring') : 'What’s in a pint';
       if (label !== it.label) { it.label = label; it.kicker.textContent = label; }
     };
     let last = 0, running = false;
@@ -200,9 +172,13 @@ if (xvs.length) {
       items.forEach(it => {
         if (!it.live) return;
         if (it.cur < 0) it.cur = it.target;
+        const k = 1 - Math.exp(-dt / (lenis ? 55 : 95));              // ~95ms time constant
+        let moved = false;
+        if (it.pf) { if (it.pcur < 0) it.pcur = it.ptarget; const pd = it.ptarget - it.pcur; if (Math.abs(pd) > .02) { it.pcur += pd * k; moved = true; } else if (it.pcur !== it.ptarget) { it.pcur = it.ptarget; moved = true; } }
         const d = it.target - it.cur;
-        if (Math.abs(d) > .0004) { it.cur += d * (1 - Math.exp(-dt / (lenis ? 55 : 95))); busy = true; draw(it); }   // ~95ms time constant
-        else if (it.cur !== it.target) { it.cur = it.target; draw(it); }
+        if (Math.abs(d) > .0004) { it.cur += d * k; busy = true; moved = true; }
+        else if (it.cur !== it.target) { it.cur = it.target; moved = true; }
+        if (moved) { draw(it); if (it.pf && Math.abs(it.ptarget - it.pcur) > .02) busy = true; }
       });
       if (busy) requestAnimationFrame(frame); else { running = false; last = 0; }
     };

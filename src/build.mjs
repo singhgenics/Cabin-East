@@ -143,7 +143,7 @@ const XV = {
   bao: { word: 'Bao', kicker: 'How a bao is built', alt: 'Illustration of a pork belly bao pulled apart into its layers',
     tags: ['Steamed bun', 'Coriander and peanut crumb', 'Braised pork belly, hoisin', 'Cucumber', 'Bun base'],
     cap: 'Two to a plate, finished to order.', link: ['#bao', 'See the bao'] },
-  beer: { word: 'Beer', kicker: 'How a pint is built', alt: 'Illustration of a pint of craft lager pulled apart into its parts',
+  beer: { word: 'Beer', kicker: 'How a pint is poured', alt: 'Illustration of a pint poured from a brass tap, then pulled apart into its parts', frames: 66, k1: 'Ready to drink',
     tags: ['The tap', 'Thick foam', 'Craft lager', 'Hops and malt', 'Coaster'],
     cap: 'Three craft taps from small breweries up the coast.', link: ['#beer', 'See the taps'] },
 };
@@ -153,34 +153,16 @@ function explode(name) {
   const layers = d.layers.map((l, i) => `<img class="xv-l" src="assets/explode/${name}-${i}.webp" alt="" data-dy="${l.dy.toFixed(4)}" data-i="${i}" style="z-index:${d.layers.length - i};left:${pct(l.x)};top:${pct(l.y)};width:${pct(l.w)}" width="${Math.round(l.w * 896)}" height="${Math.round(l.h * 1200)}" decoding="async">`).join('');
   const tags = d.layers.map((l, i) => `<span class="xv-tag xv-tag-${i % 2 ? 'r' : 'l'}" data-dy="${l.dy.toFixed(4)}" style="top:${pct(l.y + l.h / 2)}">${c.tags[i]}</span>`).join('');
   const w = d.whole, whole = `<img class="xv-whole" src="assets/explode/${name}-whole.webp" alt="" style="left:${pct(w.x)};top:${pct(w.y)};width:${pct(w.w)}" width="600" height="800" decoding="async">`;
-  return `<section class="xv xv-${name}" data-xv aria-label="${esc(c.kicker)}">
+  return `<section class="xv xv-${name}" data-xv${c.frames ? ` data-frames="${c.frames}" data-k1="${c.k1}"` : ''} aria-label="${esc(c.kicker)}">
   <div class="xv-stick">
     <p class="xv-kicker">${c.kicker}</p>
     <p class="xv-word" aria-hidden="true">${c.word}</p>
-    <div class="xv-stage" style="--ratio:${d.ratio.toFixed(4)}" role="img" aria-label="${esc(c.alt)}">${layers}${whole}${tags}</div>
+    <div class="xv-stage" style="--ratio:${d.ratio.toFixed(4)}" role="img" aria-label="${esc(c.alt)}">${c.frames ? '<canvas class="xv-pour-cv" width="405" height="720" aria-hidden="true"></canvas>' : ''}${layers}${whole}${tags}</div>
     <div class="xv-bar" aria-hidden="true"><i></i></div>
     <p class="xv-cap"><span>${c.cap}</span> <a href="${c.link[0]}">${c.link[1]}</a> <em>Illustration</em></p>
   </div>
 </section>`;
 }
-function pour() {
-  const dir = path.join(ROOT, 'assets/pour'); const n = fs.existsSync(dir) ? fs.readdirSync(dir).filter(f => /^f-\d+\.webp$/.test(f)).length : 0;
-  if (!n) return '';
-  const last = String(n - 1).padStart(3, '0');
-  return `<section class="xv xv-pour" data-pour data-frames="${n}" aria-label="How a pint is poured">
-  <div class="xv-stick">
-    <p class="xv-kicker">How a pint is poured</p>
-    <p class="xv-word" aria-hidden="true">Pour</p>
-    <div class="xv-stage pour-stage" style="--ratio:0.5625">
-      <img class="pour-poster" src="assets/pour/f-${last}.webp" alt="A full pint of golden craft lager under a brass tap (illustration)" width="405" height="720" decoding="async">
-      <canvas class="pour-canvas" width="405" height="720" aria-hidden="true"></canvas>
-    </div>
-    <div class="xv-bar" aria-hidden="true"><i></i></div>
-    <p class="xv-cap"><span>Poured to order, topped with a finger of foam.</span> <a href="#beer">See the taps</a> <em>Illustration</em></p>
-  </div>
-</section>`;
-}
-html = html.replace(/\{\{#pour\}\}/g, () => pour());
 html = html.replace(/\{\{#explode:(dimsum|bao|beer)\}\}/g, (_, k) => explode(k));
 html = html.replace(/\{\{#(dimsum|bao|cocktails|taps)\}\}/g, (_, k) => String(count(k)));
 fs.writeFileSync(path.join(ROOT, 'index.html'), html);
