@@ -75,6 +75,55 @@ if (loops.length && 'IntersectionObserver' in window && !still && !matchMedia('(
   loops.forEach(v => vo.observe(v));
 }
 
+// the pour: scroll scrubs a frame sequence (a glass filling under a tap); frames are preloaded when the section nears
+const pours = [...document.querySelectorAll('[data-pour]')];
+if (pours.length && !still && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  pours.forEach(el => {
+    const n = +el.dataset.frames, stick = el.querySelector('.xv-stick'), stage = el.querySelector('.pour-stage'), cv = el.querySelector('canvas');
+    const cap = el.querySelector('.xv-cap'), word = el.querySelector('.xv-word'), bar = el.querySelector('.xv-bar i'), kick = el.querySelector('.xv-kicker'), k0 = kick.textContent;
+    const ctx = cv.getContext('2d'), frames = new Array(n); let loaded = 0, started = false, target = 0, cur = -1, shown = -1, running = false, last = 0, live = false, t = 0;
+    const clamp = (v, a, b) => Math.min(b, Math.max(a, v)), smooth = v => v * v * (3 - 2 * v);
+    const src = i => `assets/pour/f-${String(i).padStart(3, '0')}.webp`;
+    const paint = i => {                                              // draw the nearest loaded frame at or below i
+      let k = Math.round(i); while (k > 0 && !frames[k]) k--;
+      if (frames[k] && k !== shown) { ctx.drawImage(frames[k], 0, 0, cv.width, cv.height); shown = k; }
+    };
+    const load = () => {
+      if (started) return; started = true;
+      const order = [...Array(n).keys()];                              // every 6th first so scrubbing works before all frames arrive
+      order.sort((a, b) => (a % 6 ? 1 : 0) - (b % 6 ? 1 : 0) || a - b);
+      order.forEach(i => { const im = new Image(); im.decoding = 'async'; im.onload = () => { frames[i] = im; if (++loaded === 1 || i === 0) { paint(cur < 0 ? 0 : cur); el.classList.add('pour-on'); } }; im.src = src(i); });
+    };
+    const aim = () => {
+      const r = el.getBoundingClientRect(), run = r.height - stick.offsetHeight;
+      t = clamp(-r.top / Math.max(1, run), 0, 1); target = clamp((t - .08) / .74, 0, 1) * (n - 1); live = r.bottom > -300 && r.top < innerHeight + 300;
+    };
+    const draw = () => {
+      const p = cur / (n - 1), e = smooth(clamp(p, 0, 1));
+      paint(cur);
+      stage.style.transform = `scale(${(.92 + .08 * e).toFixed(4)})`;
+      word.style.transform = `translate3d(0, ${((.5 - e) * 50).toFixed(1)}px, 0) scale(${(.94 + .1 * e).toFixed(4)})`;
+      const done = clamp((p - .92) / .08, 0, 1); cap.style.opacity = done.toFixed(3); cap.style.transform = `translate3d(0, ${((1 - done) * 16).toFixed(1)}px, 0)`;
+      bar.style.transform = `scaleX(${t.toFixed(4)})`;
+      const label = p < .04 ? k0 : p > .97 ? 'Poured' : 'Pouring'; if (kick.textContent !== label) kick.textContent = label;
+    };
+    const frame = now => {
+      const dt = Math.min(64, now - (last || now)); last = now;
+      if (live) {
+        if (cur < 0) cur = target;
+        const d = target - cur;
+        if (Math.abs(d) > .02) { cur += d * (1 - Math.exp(-dt / 70)); draw(); requestAnimationFrame(frame); return; }
+        if (cur !== target) { cur = target; draw(); }
+      }
+      running = false; last = 0;
+    };
+    const kickLoop = () => { aim(); if (live) load(); if (!running) { running = true; requestAnimationFrame(frame); } };
+    el.querySelector('.xv-cap').style.opacity = 0;
+    new IntersectionObserver(es => { if (es[0].isIntersecting) load(); }, { rootMargin: '1800px 0px' }).observe(el);
+    addEventListener('scroll', kickLoop, { passive: true }); addEventListener('resize', kickLoop); kickLoop();
+  });
+}
+
 // whole-page smooth scrolling (Lenis, self-hosted): wheel and trackpad glide, touch stays native, anchors ease to their target
 let lenis = null;
 if (!still && window.Lenis && !matchMedia('(prefers-reduced-motion: reduce)').matches) {

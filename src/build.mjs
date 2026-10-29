@@ -163,6 +163,24 @@ function explode(name) {
   </div>
 </section>`;
 }
+function pour() {
+  const dir = path.join(ROOT, 'assets/pour'); const n = fs.existsSync(dir) ? fs.readdirSync(dir).filter(f => /^f-\d+\.webp$/.test(f)).length : 0;
+  if (!n) return '';
+  const last = String(n - 1).padStart(3, '0');
+  return `<section class="xv xv-pour" data-pour data-frames="${n}" aria-label="How a pint is poured">
+  <div class="xv-stick">
+    <p class="xv-kicker">How a pint is poured</p>
+    <p class="xv-word" aria-hidden="true">Pour</p>
+    <div class="xv-stage pour-stage" style="--ratio:0.5625">
+      <img class="pour-poster" src="assets/pour/f-${last}.webp" alt="A full pint of golden craft lager under a brass tap (illustration)" width="405" height="720" decoding="async">
+      <canvas class="pour-canvas" width="405" height="720" aria-hidden="true"></canvas>
+    </div>
+    <div class="xv-bar" aria-hidden="true"><i></i></div>
+    <p class="xv-cap"><span>Poured at an angle, topped with a finger of foam.</span> <a href="#beer">See the taps</a> <em>Illustration</em></p>
+  </div>
+</section>`;
+}
+html = html.replace(/\{\{#pour\}\}/g, () => pour());
 html = html.replace(/\{\{#explode:(dimsum|bao|beer)\}\}/g, (_, k) => explode(k));
 html = html.replace(/\{\{#(dimsum|bao|cocktails|taps)\}\}/g, (_, k) => String(count(k)));
 fs.writeFileSync(path.join(ROOT, 'index.html'), html);
