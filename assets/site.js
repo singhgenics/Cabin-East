@@ -65,6 +65,16 @@ if (story && chapters.length) {
 }
 
 
+// looping clips play only while on screen (and never under reduced motion or ?still: the poster stays)
+const loops = document.querySelectorAll('video[data-loop]');
+if (loops.length && 'IntersectionObserver' in window && !still && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const vo = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting) { v.preload = 'auto'; const p = v.play(); if (p && p.catch) p.catch(() => {}); } else v.pause();
+  }), { threshold: .25 });
+  loops.forEach(v => vo.observe(v));
+}
+
 // whole-page smooth scrolling (Lenis, self-hosted): wheel and trackpad glide, touch stays native, anchors ease to their target
 let lenis = null;
 if (!still && window.Lenis && !matchMedia('(prefers-reduced-motion: reduce)').matches) {

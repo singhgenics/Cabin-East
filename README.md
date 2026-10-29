@@ -47,3 +47,7 @@ Page order: hero, moat strip, Steam (dim sum, bao), Draught (craft beer, craft c
 Each scene also has a `x-<name>-whole` Flow picture (the finished dish, no steam: steam keys to green flecks) that the layers dissolve into; `slice.py` writes it as `assets/explode/<name>-whole.webp`.
 
 Whole-page smooth scrolling is Lenis (self-hosted `assets/lenis.min.js`, v1.1.20), set up at the top of the exploded-views block in `assets/site.js`; it is off for reduced motion and `?still`.
+
+## Wok video
+
+`assets/video/wok-toss.mp4` is a Flow image-to-video clip (Veo Lite, started from `assets/flow/wok-fire.jpg`, prompt in `src/flow/wok-toss.txt`), cut so its last 0.6s dissolves into its first and it loops without a jump (`ffmpeg` xfade, audio dropped, 960 px wide). It plays only while on screen and not under reduced motion. If `gflow video i2v` ends with "no signed media URL", the clip was still made and paid for: `gflow data list videos`, then `gflow data download <media_id>` recovers it free.
