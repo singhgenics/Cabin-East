@@ -51,3 +51,5 @@ Whole-page smooth scrolling is Lenis (self-hosted `assets/lenis.min.js`, v1.1.20
 ## Wok video
 
 `assets/video/wok-toss.mp4` is a Flow image-to-video clip (Veo Lite, started from `assets/flow/wok-fire.jpg`, prompt in `src/flow/wok-toss.txt`), cut so its last 0.6s dissolves into its first and it loops without a jump (`ffmpeg` xfade, audio dropped, 960 px wide). It plays only while on screen and not under reduced motion. If `gflow video i2v` ends with "no signed media URL", the clip was still made and paid for: `gflow data list videos`, then `gflow data download <media_id>` recovers it free.
+
+`assets/video/cocktail-shake.mp4` is the same kind of clip for the craft cocktails picture (start frame `assets/flow/cocktail-bar.jpg`, prompt `src/flow/cocktail-shake.txt`).
