@@ -158,7 +158,7 @@ if (xvs.length) {
       let sc = .9 + .17 * e;                                           // slow push-in as it comes together
       if (it.pf) {
         it.pp = clamp(it.pcur / (it.pf - 1), 0, 1); paintPour(it);
-        it.cv.style.opacity = (1 - it.rv).toFixed(3);
+        it.cv.style.opacity = (1 - it.rv).toFixed(3); it.word.style.opacity = it.rv.toFixed(3);
         sc = (1 - it.rv) * (.94 + .06 * it.pp) + it.rv * sc;
       }
       it.stage.style.transform = `scale(${sc.toFixed(4)})`;

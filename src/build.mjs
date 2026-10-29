@@ -143,7 +143,7 @@ const XV = {
   bao: { word: 'Bao', kicker: 'How a bao is built', alt: 'Illustration of a pork belly bao pulled apart into its layers',
     tags: ['Steamed bun', 'Coriander and peanut crumb', 'Braised pork belly, hoisin', 'Cucumber', 'Bun base'],
     cap: 'Two to a plate, finished to order.', link: ['#bao', 'See the bao'] },
-  beer: { word: 'Beer', kicker: 'How a pint is poured', alt: 'Illustration of a pint poured from a brass tap, then pulled apart into its parts', frames: 66, k1: 'Ready to drink',
+  beer: { word: 'Beer', kicker: 'How a pint is poured', alt: 'Illustration of a pint poured from a brass tap, then pulled apart into its parts', frames: fs.readdirSync(path.join(ROOT, 'assets/pour')).filter(f => /^f-\d+\.webp$/.test(f)).length, k1: 'Ready to drink',
     tags: ['The tap', 'Thick foam', 'Craft lager', 'Hops and malt', 'Coaster'],
     cap: 'Three craft taps from small breweries up the coast.', link: ['#beer', 'See the taps'] },
 };
@@ -155,9 +155,10 @@ function explode(name) {
   const w = d.whole, whole = `<img class="xv-whole" src="assets/explode/${name}-whole.webp" alt="" style="left:${pct(w.x)};top:${pct(w.y)};width:${pct(w.w)}" width="600" height="800" decoding="async">`;
   return `<section class="xv xv-${name}" data-xv${c.frames ? ` data-frames="${c.frames}" data-k1="${c.k1}"` : ''} aria-label="${esc(c.kicker)}">
   <div class="xv-stick">
+    ${c.frames ? '<canvas class="xv-pour-cv" width="1024" height="576" aria-hidden="true"></canvas>' : ''}
     <p class="xv-kicker">${c.kicker}</p>
     <p class="xv-word" aria-hidden="true">${c.word}</p>
-    <div class="xv-stage" style="--ratio:${d.ratio.toFixed(4)}" role="img" aria-label="${esc(c.alt)}">${c.frames ? '<canvas class="xv-pour-cv" width="405" height="720" aria-hidden="true"></canvas>' : ''}${layers}${whole}${tags}</div>
+    <div class="xv-stage" style="--ratio:${d.ratio.toFixed(4)}" role="img" aria-label="${esc(c.alt)}">${c.frames ? '' : ''}${layers}${whole}${tags}</div>
     <div class="xv-bar" aria-hidden="true"><i></i></div>
     <p class="xv-cap"><span>${c.cap}</span> <a href="${c.link[0]}">${c.link[1]}</a> <em>Illustration</em></p>
   </div>

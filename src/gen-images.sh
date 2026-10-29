@@ -28,6 +28,7 @@ x-dimsum|assets/flow/x-dimsum.jpg|3:4|
 x-bao|assets/flow/x-bao.jpg|3:4|
 x-beer|assets/flow/x-beer.jpg|3:4|
 hero-bao|assets/flow/hero-bao.jpg|16:9|
+pour-wide|assets/flow/pour-wide.jpg|16:9|
 pour-start|assets/flow/pour-start.jpg|9:16|
 x-dimsum-whole|assets/flow/x-dimsum-whole.jpg|3:4|
 x-bao-whole|assets/flow/x-bao-whole.jpg|3:4|
